@@ -7,8 +7,10 @@ body {
     padding: 0;
     font-family: 'Raleway';
     color: #165d87;
-/*    animation: bgchange 10s alternate infinite;  #edd2c7 */
+    background: #edd2c7;
+    animation: bgchange 5s alternate infinite;  /* #edd2c7 */
 }
+/*
 body::after {
   content: "";
   background: url(../img/parking-ticket.jpg) top center fixed no-repeat;
@@ -21,13 +23,14 @@ body::after {
   position: absolute;
   z-index: -1;   
 }
+*/
 @keyframes bgchange {
   0% {
-    background-color: #001F3F;
+    background-color: #edd2c7;
   }
   100% {
-    background-color: #fcc5ca;
-  }
+    background-color: #c4dff2;
+    }
 }
 a {
     text-decoration: none;
@@ -50,6 +53,18 @@ a {
     margin: 0;
 }
 */
+
+.fullscreen-video-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    opacity: 0.2;
+}
+
+
 .contact {
 /*    display: inline-block;*/
     position: absolute;
@@ -91,7 +106,7 @@ h1 {
     background: white;
     border: 1px solid #eeede9;
     border-radius: 3em;
-    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.1), 0 3px 3px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.1), 0 5px 3px 0 rgba(0,0,0,0.1);
     line-height: 4em;
     font-size: 24px;
 /*    border: 1px solid red;*/
@@ -123,9 +138,11 @@ h1 {
 */
 
 /******* floating elements ******/
+/*
 .elements {
     opacity: 0.8;
 }
+*/
 .wing {
     position: absolute;
     right: -6em;
@@ -243,6 +260,7 @@ h1 {
     padding: 0;
     text-align: center;
 }
+/*
 footer::after {
   content: "";
   background: white;
@@ -253,6 +271,7 @@ footer::after {
   right: 0;
   position: absolute;
 }
+*/
 .copyright {
 /*
     position: absolute;
