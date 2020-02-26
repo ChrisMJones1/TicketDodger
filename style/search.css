@@ -29,7 +29,7 @@ body::after {
     background-color: #edd2c7;
   }
   100% {
-    background-color: #c4dff2;
+    background-color: #feefce;
     }
 }
 a {
@@ -61,7 +61,8 @@ a {
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    opacity: 0.2;
+    opacity: 0.3;
+    z-index: -1;
 }
 
 
@@ -80,14 +81,16 @@ a {
     height: 12em;
     margin: 10% auto;
     text-align: center;
+    z-index: 2;
 }
 h1 {
 /*    color: #eeede9;*/
     color: #165d87;
-    font-size: 5em;
+    font-size: 6em;
     font-family: 'Shadows Into Light Two';
-    text-shadow: 5px 5px 5px white;
-    font-weight: bold;
+    text-shadow: 3px 3px 5px #b1bdd4;
+    font-weight: bolder;
+/*    margin-bottom: 1.5em;*/
 }
 .searchbar {
     position: relative;
@@ -95,7 +98,7 @@ h1 {
     height: 4em;
     margin: 0 auto;
     padding: 0;
-    opacity: 0.8;
+    opacity: 0.9;
 /*    border: 1px solid red;*/
 }
 .searchkey {
@@ -164,12 +167,14 @@ h1 {
 }
 .text {
     position: absolute;
-    -ms-transform: rotate(-15deg);  /* IE 9 */
+/*
+    -ms-transform: rotate(-15deg);   IE 9 
     transform: rotate(-15deg);
-    top: 10%;
-    left: 4%;
+*/
+    top: 60%;
+    left: 42%;
     right: 20%;
-    font-size: 1.5em;
+    font-size: 1em;
     color: #d93f4b;
     font-weight: bolder;
     text-shadow: 0 10px 5px #5b7b94;
@@ -178,7 +183,7 @@ h1 {
     flex-flow: row wrap;
 }
 .iconimg {
-    width: 50px;
+    width: 40px;
     display: inline-block;
     margin-right: 0.5em;
 }
