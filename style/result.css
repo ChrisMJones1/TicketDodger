@@ -223,8 +223,12 @@ a:hover {
     padding: 0.8em 2em;
     margin: 0;
     font-size: 1.1em;
-    line-height: 2em;
+    line-height: 2.5em;
     margin: 0;
+}
+.resultText {
+    margin: 0;
+    padding: 0;
 }
 #address {
     font-size: 1.5em;
@@ -240,18 +244,18 @@ a:hover {
     font-weight: bold;
 }
 #level {
-    font-size: 1.5em;
+    font-size: 2em;
     padding-left: 0.8em;
     padding-right: 0.2em;
     /*** use js change color ***/
     color: #66cc76;
     font-weight: bold;
-    line-height: 2em;
+    line-height: 1.8em;
     vertical-align: middle;
 }
 .icon {
     width: 40px;
-    margin-left: 0.5em;
+    margin-left: 1em;
 }
 .suggestion {
     font-size: 1.3em;
