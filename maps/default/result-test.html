@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <head>
-    <!-- add TITLE (style) -->
+    <!--------------- add title & css link -------------->
     <title>TicketDodger| Result</title>
     <link rel="stylesheet" type="text/css" href="../../style/result.css">
-    <!-- add TITLE (style) end -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Shadows+Into+Light+Two&display=swap" rel="stylesheet">
+    <!--------------- add title & css link end -------------->
     
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
         <script>
@@ -33,46 +34,66 @@
                     height: 100.0%;
                     left: 0.0%;
                     top: 0.0%;
+                    /****************** set layer *****************/
+/*                    z-index: -1;*/
                 }
             </style>
         
     <script src="https://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"></script>
 </head>
-<body>    <header id="header">
-            <!-- logo title -->
-            <div class="logo">
-                <h1><a href="index.html">TicketDodger</a></h1>
+<body>
+    
+    <!-- add loading circle, react? -->
+    
+    <!------------------------- add header ---------------------->
+    <header id="myHeader">
+        <!-- logo title -->
+        <div class="logo">
+            <h1><a class="h1" href="../../index.html">TicketDodger</a></h1>
+        </div>
+        <div class="text">
+            <div class="gpsicon">
+                <img  class="iconimg" src="../../img/pin.png" alt="location icon">
             </div>
-            
-            
-            <div class="text">
-                <div class="icon">
-                    <img  class="iconimg" src="img/pin.png" alt="location icon">
-                </div>
-                <div class="los">
-                    <span id="l">L</span>
-                    <span id="o">O</span>
-                    <span id="s">S </span>
-                </div>
-                <div class="angeles">
-                    <span id="a">A</span>
-                    <span id="n">N</span>
-                    <span id="g">G</span>
-                    <span id="e">E</span>
-                    <span id="l2">L</span>
-                    <span id="e2">E</span>
-                    <span id="s2">S</span>
-                </div>   
+            <div class="los">
+                <span id="l">L</span>
+                <span id="o">o</span>
+                <span id="s">s </span>
             </div>
-            
-            
-            <div class="contact">
-                <a href="">CONTACT US</a>
-            </div>
-            
-        </header>
+            <div class="angeles">
+                <span id="a">A</span>
+                <span id="n">n</span>
+                <span id="g">g</span>
+                <span id="e">e</span>
+                <span id="l2">l</span>
+                <span id="e2">e</span>
+                <span id="s2">s</span>
+            </div>   
+        </div>
         
-<!--
+        <!----------------- set timeslot ---------------->
+        <div class="timeslot">
+            <form action="result.html" method="get">
+                <label>Arrive at</label>
+                <select>
+                    <option>12:00 AM</option>
+                    <option>12:00 AM</option>
+                    <option>12:00 AM</option>
+                    <option>12:00 AM</option>
+                    <option>12:00 AM</option>
+                    <option>12:00 AM</option>
+                    <option>12:00 AM</option>
+                </select>
+                <input class="submitbtn" type="submit" value="Start Dodge">
+            </form>
+        </div>
+        <!----------------- set timeslot end ---------------->
+        
+        
+        <div class="contact">
+            <a href="">CONTACT US</a>
+        </div>     
+    <!--
         <div class="text">
             <div class="icon">
                 <img  class="iconimg" src="img/pin.png" alt="location icon">
@@ -92,12 +113,77 @@
                 <span id="s2">S</span>
             </div>   
         </div>
--->
+    -->
+    </header> 
+    <!------------------------- add header end ---------------------->
     
-    <!-- map -->    
+    <!------------------------- add result block ---------------------->
+    <div class="resultContainer">
+        <div class="gobacklink">
+            <a href="../../index.html">Back to location input</a>
+        </div>
+        <div class="result">
+            <p class="resultText">
+                The oppurtunity to get a parking ticket<br>
+                at 
+                <!-- use js -->
+                <span id="address">M1W 7B2</span>
+                <span class="realtime">18:16:56</span><br>is 
+                <span id="level">SMALL</span>
+                <span>
+                    <!-- use js -->
+                    <img class="icon levelicon" src="../../img/smile.png" alt="smile face">
+                </span>
+            </p>
+            <!----------- icon copyright ------------>
+            <div class="iconcopyright">Icons made by <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            <!----------- icon copyright end ------------>
+            
+            <div class="suggestion">
+                It's safe to park your car there. <br>
+            </div>
+            Check the real time heat map.
+            <span class="point">
+                <img class="icon fingericon" src="../../img/finger.png">
+            </span>
+            <!----------- icon copyright ------------>
+            <div class="iconcopyright">Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></div>
+            <!----------- icon copyright end ------------>
+            
+        </div>
+    </div>
+    <!------------------------- add result block end ---------------------->
+    
+    
+    <!--------------------- MAP --------------------->    
     <div class="folium-map" id="map_e0c20c48973f4b8497552d2a1b72db47" ></div>
+    
+    <div id="footer">
+        <p class="copyright">
+            All Rights Reserved © 2020-02 Web developer Chris, Ella 
+        </p>
+    </div>
         
 </body>
+
+<!----------------- header fixed ---------------->
+<script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+</script>
+<!----------------- header fixed ---------------->
+
+
 <script>    
     
             var map_e0c20c48973f4b8497552d2a1b72db47 = L.map(
