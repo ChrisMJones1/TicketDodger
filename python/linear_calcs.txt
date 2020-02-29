@@ -1,0 +1,21 @@
+Lng range = 1.2453542387719807 #deci degrees
+Lat range = 1.0418302783898454 #deci degrees
+lng_max = 638458.22016 #State line meters 0405
+lng_min = 522928.41312 #State line meters 0405
+lat_max = 2027717.99688 #State line meters 0405
+lat_min = 1912761.06144 #State line meters 0405
+
+Same as above but with deci and state lines swapped
+Lng range = 115529.80704000004
+Lat range = 114956.93543999991
+Lng max = -117.69947902772472
+Lng min = -118.9448332664967
+Lat max = 34.74816962368006
+Lat min = 33.70633934529022
+
+to convert to linear, minus the min, divide by the range
+to convert from linear, multiply by the range, add the min
+
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+
+0 60 120 180 240 300 360 420 480
