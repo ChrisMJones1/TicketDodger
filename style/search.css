@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|Shadows+Into+Light+Two&display=swap');
+/******************** GENERAL setting *********************/
+html {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway';
+    color: #165d87;
+    background: #faf3f0;
+/*    animation: bgchange 8s alternate infinite;   */
+/*    #edd2c7, #faf3f0*/
+}
+/************* body bg animation ***********/
+/*
+body::after {
+  content: "";
+  background: url(../img/parking-ticket.jpg) top center fixed no-repeat;
+  background-size: cover;
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+*/
+@keyframes bgchange {
+  0% {
+    background-color: #edd2c7;
+  }
+  50% {
+    background-color: #c8e0ec;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+   
+/******************** HEADER *********************/
+/*
+.logoimg {
+    width: 50px;
+    padding-top: 2em;
+    padding-left: 3em; 
+    margin: 0;
+}
+*/
+.fullscreen-video-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    opacity: 0.3;
+    z-index: -1;
+    margin-top: -1.2em;
+}
+#video {
+    margin-top: 0;
+    padding-top: 0;
+}
+/*
+video {
+    object-fit: contain;
+}
+*/
+.logoimg {
+    width: 50px;
+    position: absolute;
+    top: 1em;
+    left: 3em;
+}
+.contact {
+    position: absolute;
+    right: 3em;
+    top: 2em;
+    color: #165d87;
+    font-size: 0.9em;
+/*    animation: textchange 8s alternate infinite; */
+}
+@keyframes textchange {
+  0% {
+    color: #165d87;
+  }
+  100% {
+    color: #edd2c7;
+    }
+}
+
+/******************** MAIN *********************/
+#main {
+    width: 40em;
+    height: 12em;
+    margin: 15% auto;
+    text-align: center;
+    z-index: 2;
+}
+h1 {
+    color: #165d87;
+    font-size: 6em;
+    font-family: 'Shadows Into Light Two';
+    text-shadow: 4px 6px 6px #faf3f0, 6px 8px 8px rgba(0,0,0,1);
+    font-weight: bolder;
+    z-index: 9999;
+    margin: 0.5em auto;
+}
+.searchbar {
+    position: relative;
+    width: 40em;
+    height: 4em;
+    margin: 0 auto;
+    padding: 0;
+    opacity: 0.9;
+}
+.searchkey {
+    width: 23em;
+    height: 2.5em;
+    margin: 0;
+    padding: 0 2em;
+    background: white;
+    border: 1px solid #eeede9;
+    border-radius: 3em;
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.1), 0 5px 3px 0 rgba(0,0,0,0.1);
+    line-height: 4em;
+    font-size: 24px;
+}
+.searchbtn {
+    display: inline-block;
+    position: absolute;
+    right: 1.8em;
+    top: 0.8em;
+    border: none;
+    background: none;
+    font-size: 1.3em;
+    font-family: 'Shadows Into Light Two';
+    color: #165d87;
+    text-shadow: 1px 3px 3px #b1bdd4;
+}
+
+/******* "LOS ANGELES" ******/
+.text {
+    position: absolute;
+/*
+    -ms-transform: rotate(-15deg);   IE 9 
+    transform: rotate(-15deg);
+*/
+    top: 30em;
+    left: 42%;
+    font-size: 1em;
+    color: #d93f4b;
+    font-weight: bolder;
+    text-shadow: 2px 4px 8px #165d87, 4px 8px 5px rgba(0,0,0,0.08);
+    font-style: italic;
+    display: flex;
+    flex-flow: row wrap;
+}
+.iconimg {
+    width: 40px;
+    display: inline-block;
+    margin-right: 0.5em;
+}
+.los {
+    display: inline-block;
+    margin-right: 0.5em;
+}
+.angeles {
+    flex: auto;
+}
+#l {
+    font-size: 2em;
+    animation: effect1 0.5s alternate ;
+    animation-delay: 0.5s;
+}
+#o {
+    animation: effect2 0.5s alternate ;
+    animation-delay: 0.6s;
+}
+#s {
+    animation: effect2 0.5s alternate ;
+    animation-delay: 0.7s;
+}
+#a {
+    font-size: 2em;
+    animation: effect1 0.5s alternate ;
+    animation-delay: 0.8s;
+}
+#n {
+    animation: effect2 0.5s alternate ;
+    animation-delay: 0.9s;
+}
+#g {
+    animation: effect2 0.5s alternate ;
+    animation-delay: 1s;
+}
+#e {
+    animation: effect2 0.5s alternate ;
+    animation-delay: 1.1s;
+}
+#l2{
+    animation: effect2 0.5s alternate ;
+    animation-delay: 1.2s;
+}
+#e2 {
+    animation: effect2 0.5s alternate ;
+    animation-delay: 1.3s;
+}
+#s2 {
+    animation: effect2 0.5s alternate ;
+    animation-delay: 1.4s;
+}
+@keyframes effect1 {
+    0% {
+        font-size: 2em;
+    }
+    50% {
+        font-size: 3em;
+    }
+}
+@keyframes effect2 {
+    0% {
+        font-size: 1em;
+    }
+    50% {
+        font-size: 2em;
+    }
+}
+/******* "LOS ANGELES" end ******/
+
+/******************** FOOTER *********************/
+#footer {
+    width: 100%;
+    height: 1.1em;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+/* footer bg color setting */
+#footer::after {
+  content: "";
+  background: white;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+    z-index: -1;
+}
+.copyright {
+    margin: auto;
+    color: #165d87;
+    font-size: 0.8em;
+    line-height: 1.2em;
+}
+.iconcopyright {
+    position: absolute;
+    left: -10000em;
+}
+/******************** FOOTER end *********************/
