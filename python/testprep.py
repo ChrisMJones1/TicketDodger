@@ -37,7 +37,7 @@ def timetest(time_range, r):
 
         starttime = (str(t) + "00").zfill(4)
         endtime = starttime[:2] + "59"
-        parquetname = "C:/ticketdodger/python/data/tickets_" + starttime + "_to_" + endtime + ".parquet"
+        parquetname = "data/tickets_" + starttime + "_to_" + endtime + ".parquet"
         df = pd.read_parquet(parquetname)
 
         lng_range = 115529.80704000004
@@ -72,7 +72,7 @@ def timetest(time_range, r):
     dictionary_df = pd.DataFrame.from_dict(dictionarylist)
     print(dictionary_df.sort_values("ratio"))
 
-    parquetdataname = "C:/ticketdodger/python/data/test/testdata3.parquet"
+    parquetdataname = "data/test/testdata4.parquet"
 
     data_df = data_df.append(dictionary_df)
     data_df.to_parquet(parquetdataname)

@@ -24,7 +24,7 @@ from itertools import product
 from string import ascii_uppercase
 from matplotlib import patheffects
 
-parquetdataname = "C:/ticketdodger/python/data/test/testdata2.parquet"
+parquetdataname = "../data/test/testdata2.parquet"
 data_df = pd.read_parquet(parquetdataname)
 data_df = data_df.sort_values('ratio')
 target = data_df.pop('ratio')
@@ -36,7 +36,7 @@ test_array = np.array([[0.0, 0.519256, 0.351533]])
 
 # dataset = tf.data.Dataset.from_tensor_slices(data_df.values)
 
-new_model = tf.keras.models.load_model('C:/ticketdodger/python/proper_ticket_risk_model.h5')
+new_model = tf.keras.models.load_model('../proper_ticket_risk_modelv2.h5')
 
 
 predictions = new_model.predict(data_df.values)
