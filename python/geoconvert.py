@@ -24,17 +24,25 @@ from matplotlib import patheffects
 
 inProj = Proj("esri:102645", preserve_units=False)
 outProj = Proj("epsg:4326") # WGS84 in lat long
-y1, x1 =  (560301.731, 1976879.710)
-print(transform(inProj,outProj,x1,y1))
+# y1, x1 =  (560301.731, 1976879.710)
+# print(transform(inProj,outProj,x1,y1))
 
 # Center LA 34°02'36.1"N 118°15'01.4"W 34.04336111111111 -118.25038888888889
-minlat = (1976879.710  - 1250)
-maxlat = (1976879.710 + 1250)
-minlong = (560301.731  - 1250)
-maxlong = (560301.731 + 1250)
+# minlat = (1976879.710  - 1250)
+# maxlat = (1976879.710 + 1250)
+# minlong = (560301.731  - 1250)
+# maxlong = (560301.731 + 1250)
 
-y1, x1 =  (minlong, maxlat)
-print(transform(inProj,outProj,x1,y1))
+# Full mapping bounds
+minlat = 1912761.06144
+maxlat = 2027717.99688
+minlong = 522928.41312
+maxlong = 638458.22016
+#	33.7030139, -118.9409686
+# 34.7478410, -117.6972698
 
-y1, x1 =  (maxlong, maxlat)
-print(transform(inProj,outProj,x1,y1))
+y1, x1 = (minlong, maxlat)
+print(transform(inProj, outProj, x1, y1))
+
+y2, x2 = (maxlong, maxlat)
+print(transform(inProj, outProj, x2, y2))

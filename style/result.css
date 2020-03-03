@@ -273,6 +273,11 @@ a:hover {
 /******************** RESULT block end *******************/
 
 /******************** FOOTER *********************/
+
+.bg__white-transparent {
+    background: #faf3f0;;
+    opacity: 0.5;
+}
 #footer {
     z-index: 999;
     width: 100%;

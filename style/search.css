@@ -9,7 +9,7 @@ body {
     font-family: 'Raleway';
     color: #165d87;
     background: #faf3f0;
-/*    animation: bgchange 8s alternate infinite;   */
+    animation: bgchange 8s alternate infinite;
 /*    #edd2c7, #faf3f0*/
 }
 /************* body bg animation ***********/
@@ -27,6 +27,11 @@ body::after {
   z-index: -1;   
 }
 */
+
+.bg__white-transparent {
+    background-color: rgba(250,243,240, 0.5);
+}
+
 @keyframes bgchange {
   0% {
     background-color: #edd2c7;
@@ -51,11 +56,11 @@ a {
 }
 */
 .fullscreen-video-wrap {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100vh;
+    min-width: 100%;
+    min-height: 100%;
     overflow: hidden;
     opacity: 0.3;
     z-index: -1;
@@ -101,7 +106,7 @@ video {
     text-align: center;
     z-index: 2;
 }
-h1 {
+.heading__title {
     color: #165d87;
     font-size: 6em;
     font-family: 'Shadows Into Light Two';

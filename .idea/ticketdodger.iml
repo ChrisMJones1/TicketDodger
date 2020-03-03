@@ -9,6 +9,7 @@
     <orderEntry type="library" name="@types/jquery" level="application" />
     <orderEntry type="library" name="@types/leaflet.heat" level="application" />
     <orderEntry type="library" name="@types/luxon" level="application" />
+    <orderEntry type="library" name="@types/leaflet-geosearch" level="application" />
   </component>
   <component name="PyDocumentationSettings">
     <option name="renderExternalDocumentation" value="true" />

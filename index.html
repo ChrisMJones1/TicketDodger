@@ -5,13 +5,43 @@
         <title>TicketDodger</title>
         <link rel="stylesheet" type="text/css" href="style/search.css">
         <script></script>
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
+        <link  href="https://unpkg.com/leaflet-geosearch@latest/assets/css/leaflet.css" rel="stylesheet" />
+        <script src="https://unpkg.com/leaflet-geosearch@latest/dist/bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<!--        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/luxon@1.22.0/build/global/luxon.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.css"/>
+<!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>-->
+<!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+        <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <style>
+            #map_611ae1ea252342b3a610c004d09e0358 {
+                /*position: relative;*/
+                width: 600px;
+                height: 400px;
+                left: 0.0%;
+                top: 0.0%;
+            }
+        </style>
+        <script src="https://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"></script>
     </head>
-    <body>
+    <body class="container">
         <!-- video bg -->
         <div class="fullscreen-video-wrap">
             <video id="video" src="img/video-bg.mov" autoplay="true" loop="true" muted></video>
             <script>
-                document.getElementById('vedio').play();
+                document.getElementById('video').play();
             </script>
         </div>
         <!-- video bg end -->
@@ -28,52 +58,62 @@
         <!----------------- HEADER end ----------------->
         
         <!----------------- SEARCH part ----------------->
-        <div id="main">
-            
-            <!-- title -->
-            <div id="title" title="Ticket Docker">
-                <h1>TicketDodger</h1>
+        <div id="main" class="container">
+            <div id="splash__toggle">
+                <!-- title -->
+                <div id="title" title="Ticket Docker">
+                    <h1 class="heading__title">TicketDodger</h1>
+                </div>
+
+                <!---------- SEARCH container ------->
+
+                <div id="searchform">
+                    <div class="searchbar">
+                        <input id="search_input" class="searchkey" type="text"
+                               placeholder="Enter parking location here">
+
+                        <button id="searchform__submitbutton" class="searchbtn">Start Dodge</button>
+                    </div>
+                    <div id="searchform__error"></div>
+                </div>
+                <!---------- SEARCH container end ------->
+                <div class="results container">
+                    <!---------- "LOS ANGELES" -------->
+                    <div class="text">
+                        <div class="icon">
+                            <img class="iconimg" src="img/pin.png" alt="location icon">
+                        </div>
+                        <div class="los">
+                            <span id="l">L</span>
+                            <span id="o">O</span>
+                            <span id="s">S </span>
+                        </div>
+                        <div class="angeles">
+                            <span id="a">A</span>
+                            <span id="n">N</span>
+                            <span id="g">G</span>
+                            <span id="e">E</span>
+                            <span id="l2">L</span>
+                            <span id="e2">E</span>
+                            <span id="s2">S</span>
+                        </div>
+
+                    </div>
+
+                    <!----------------- SEARCH part end ----------------->
+                </div>
             </div>
-        
-            <!---------- SEARCH container ------->
-            <form method="get" action="">
-                <div class="searchbar">
-                    <input class="searchkey" type="text" placeholder="Enter parking location here">
-                    <input class="searchbtn" type="submit" value="Start Dodge">
-                </div>
-            </form>
-            <!---------- SEARCH container end ------->
-        </div>
-        <div class="results">
-            <!---------- "LOS ANGELES" -------->
-            <div class="text">
-                <div class="icon">
-                    <img class="iconimg" src="img/pin.png" alt="location icon">
-                </div>
-                <div class="los">
-                    <span id="l">L</span>
-                    <span id="o">O</span>
-                    <span id="s">S </span>
-                </div>
-                <div class="angeles">
-                    <span id="a">A</span>
-                    <span id="n">N</span>
-                    <span id="g">G</span>
-                    <span id="e">E</span>
-                    <span id="l2">L</span>
-                    <span id="e2">E</span>
-                    <span id="s2">S</span>
-                </div>
-            </div>
-            <!----------------- SEARCH part end ----------------->
-        </div>
+
+
+        <div style="display:none;" class="folium-map container-fluid" id="map_611ae1ea252342b3a610c004d09e0358" ></div>
         <!----------------- FOOTER ----------------->
-        <div id="footer">
-            <p class="copyright">
+        <div id="" class="container page-footer bg__white-transparent">
+            <p class="copyright bg__white-transparent">
                 All Rights Reserved © 2020-02 Web developer Chris, Ella 
             </p>
         </div>
         <div class="iconcopyright">Icons made by <a href="https://www.flaticon.com/authors/alfredo-hernandez" title="Alfredo Hernandez">Alfredo Hernandez</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
         <!----------------- FOOTER end ----------------->
     </body>
+    <script src="map_example.js"></script>
 </html>

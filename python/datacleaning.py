@@ -66,40 +66,40 @@ print("converted to lat long")
 # x = df['new_lat'].values
 # y = df['new_long'].values
 
-for x in range(1):
-    # hmap = folium.Map(location=[34, -118], zoom_start=9, tiles="cartodbdark_matter")
-    print("starting time range: " + str(x))
-    # starttime = (str(x) + "00").zfill(4)
-    # endtime = starttime[:2] + "59"
-    df_time = df
-    # mapname = "dark_timeheatmap_" + starttime + "_to_" + endtime + ".html"
-    # parquetname = "./mintickets_" + starttime + "_to_" + endtime + ".parquet"
-    parquetname = "./data/all_tickets.parquet"
-    # start = datetime.strptime(starttime, '%H%M').time()
-    # end = datetime.strptime(endtime, '%H%M').time()
-    #
-    # df_longfiltermin = (df_time['Issue_time'] <= end)
-    # df_time = df_time[df_longfiltermin]
-    # df_longfiltermax = (df_time['Issue_time'] >= start)
-    # df_time = df_time[df_longfiltermax]
-
-    # df_time = df_time.drop(columns=['Ticket_number', 'Issue_Date', 'Issue_time'])
-
-    df_time = df_time.reset_index(drop=True)
-
-    df_time.to_parquet(parquetname)
-    # x = df_time['new_lat'].values
-    # y = df_time['new_long'].values
-    #
-    # mapdata = np.transpose([x, y])
-    #
-    # print("transposed to mapdata")
-    #
-    # hm_wide = HeatMap(mapdata, radius=10, blur=18, min_opacity=0.2, max_opacity=0.8).add_to(hmap)
-    #
-    # print("hm wide created")
-    #
-    # hmap.save(mapname)
+# for x in range(1):
+#     # hmap = folium.Map(location=[34, -118], zoom_start=9, tiles="cartodbdark_matter")
+#     print("starting time range: " + str(x))
+#     # starttime = (str(x) + "00").zfill(4)
+#     # endtime = starttime[:2] + "59"
+#     df_time = df
+#     # mapname = "dark_timeheatmap_" + starttime + "_to_" + endtime + ".html"
+#     # parquetname = "./mintickets_" + starttime + "_to_" + endtime + ".parquet"
+#     parquetname = "./data/all_tickets.parquet"
+#     # start = datetime.strptime(starttime, '%H%M').time()
+#     # end = datetime.strptime(endtime, '%H%M').time()
+#     #
+#     # df_longfiltermin = (df_time['Issue_time'] <= end)
+#     # df_time = df_time[df_longfiltermin]
+#     # df_longfiltermax = (df_time['Issue_time'] >= start)
+#     # df_time = df_time[df_longfiltermax]
+#
+#     # df_time = df_time.drop(columns=['Ticket_number', 'Issue_Date', 'Issue_time'])
+#
+#     df_time = df_time.reset_index(drop=True)
+#
+#     df_time.to_parquet(parquetname)
+#     # x = df_time['new_lat'].values
+#     # y = df_time['new_long'].values
+#     #
+#     # mapdata = np.transpose([x, y])
+#     #
+#     # print("transposed to mapdata")
+#     #
+#     # hm_wide = HeatMap(mapdata, radius=10, blur=18, min_opacity=0.2, max_opacity=0.8).add_to(hmap)
+#     #
+#     # print("hm wide created")
+#     #
+#     # hmap.save(mapname)
 
 
 # # Group the xy into 2x2km grid squares by subtracting the minimum value of the axis, then dividing by the grid
@@ -124,19 +124,19 @@ for x in range(1):
 #
 # df = df.reset_index(drop=True)
 print(df.head())
-# print("///////////")
-# print("Total Number of Entries: ")
-# print(len(df.index))
-# # print("////////////")
-# # print("Boundaries: ")
-# # print("minimum Latitude: ")
-# # print(df['Latitude'].min())
-# # print("maximum Latitude: ")
-# # print(df['Latitude'].max())
-# # print("minimum Longitude: ")
-# # print(df['Longitude'].min())
-# # print("maximum Longitude: ")
-# # print(df['Longitude'].max())
+print("///////////")
+print("Total Number of Entries: ")
+print(len(df.index))
+print("////////////")
+print("Boundaries: ")
+print("minimum Latitude: ")
+print(df['Latitude'].min())
+print("maximum Latitude: ")
+print(df['Latitude'].max())
+print("minimum Longitude: ")
+print(df['Longitude'].min())
+print("maximum Longitude: ")
+print(df['Longitude'].max())
 #
 # # print("/////////////")
 # # print("500m grid squares tall: ")
