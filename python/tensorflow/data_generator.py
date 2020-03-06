@@ -14,7 +14,6 @@ import tensorflow as tf
 import tensorflow.keras
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
-from keras.layers.advanced_activations import LeakyReLU
 
 import random
 from tqdm import tqdm, trange
@@ -27,7 +26,8 @@ from itertools import product
 from string import ascii_uppercase
 from matplotlib import patheffects
 
-lrelu = lambda x: tf.keras.activations.relu(x, alpha=0.1)
+from sklearn.datasets import make_blobs
+from sklearn.preprocessing import MinMaxScaler
 
 def timetest(time_range, r):
     zero_count = 0
@@ -75,14 +75,12 @@ def timetest(time_range, r):
             # print("random long: " + str(y2))
             timetotal = len(df.index)
             # print("len of df: " + str(timetotal))
-            areatotal = len(df[(df.Latitude >= (x2 - 500)) & (df.Latitude <= (x2 + 500)) & (df.Longitude >= (y2 - 500)) & (df.Longitude <= (y2 + 500))].index)
+            areatotal = len(df[(df.Latitude >= (x2 - 1000)) & (df.Latitude <= (x2 + 1000)) & (df.Longitude >= (y2 - 1000)) & (df.Longitude <= (y2 + 1000))].index)
             # areatotal = len(ddf.index)
             # print("area ticket ratio: " + str(areatotal / timetotal))
             ratio = (areatotal / timetotal)
             if ratio == 0:
                 zero_count += 1
-            # if ratio > 0:
-            #     ratio = 1
             # print(ratio)
             # print(ddf)
 
@@ -100,52 +98,33 @@ def timetest(time_range, r):
     return data_df
 
 
+# data_df = timetest(24, 10)
+#
+# print(data_df.std(axis = 0, skipna = True))
 
-# parquetdataname = "../data/test/testdata2.parquet"
-# data_df = pd.read_parquet(parquetdataname)
-data_df = timetest(24, 10)
-data_df = data_df.sort_values('ratio')
-target = data_df.pop('ratio')
-target = target.values
-print(data_df)
-print(target)
-test_array = np.array([[0.0, 0.519256, 0.351533]])
-
-
-# dataset = tf.data.Dataset.from_tensor_slices(data_df.values)
-
-new_model = tf.keras.models.load_model('../downtown_ticket_risk_modelv2.h5')
-
-wrong_counter = 0
-predictions = new_model.predict(data_df.values)
-
+# generate 2d classification dataset
+# example making new class predictions for a classification problem
+from keras.models import Sequential
+from keras.layers import Dense
+from sklearn.datasets import make_blobs
+from sklearn.preprocessing import MinMaxScaler
+# generate 2d classification dataset
+X, y = make_blobs(n_samples=100, centers=2, n_features=2, random_state=1)
+scalar = MinMaxScaler()
+scalar.fit(X)
+X = scalar.transform(X)
+# define and fit the final model
+model = Sequential()
+model.add(Dense(4, input_dim=2, activation='relu'))
+model.add(Dense(4, activation='relu'))
+model.add(Dense(1, activation='sigmoid'))
+model.compile(loss='binary_crossentropy', optimizer='adam')
+model.fit(X, y, epochs=500, verbose=0)
+# new instances where we do not know the answer
+Xnew, _ = make_blobs(n_samples=3, centers=2, n_features=2, random_state=1)
+Xnew = scalar.transform(Xnew)
+# make a prediction
+ynew = model.predict_classes(Xnew)
 # show the inputs and predicted outputs
-for i in range(len(predictions)):
-    print("X=%s, Predicted=%s" % (target[i], predictions[i]))
-    # print('%s => %d (expected %d)' % (data_df.values[i], predictions[i], target[i]))
-    # if predictions[i] != target[i]:
-    #     wrong_counter += 1
-
-
-print('correct answer ratio = ' + str((240 - wrong_counter) / 240))
-# print("expected value = 0.050891")
-# print("actual value = ")
-# print(predictions)
-#
-# test_array = np.array([[0.0, 0.517082, 0.367158]])
-#
-#
-# predictions = new_model.predict(test_array)
-#
-# print("expected value = 0.025894")
-# print("actual value = ")
-# print(predictions)
-#
-# test_array = np.array([[0.0, 0.995078, 0.049947]])
-#
-#
-# predictions = new_model.predict(test_array)
-#
-# print("expected value = 0.00000")
-# print("actual value = ")
-# print(predictions)
+for i in range(len(Xnew)):
+	print("X=%s, Predicted=%s" % (Xnew[i], ynew[i]))

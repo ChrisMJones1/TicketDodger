@@ -14,6 +14,7 @@ import tensorflow as tf
 import tensorflow.keras
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
+from keras.layers.advanced_activations import LeakyReLU
 
 import random
 
@@ -33,6 +34,7 @@ from matplotlib import patheffects
 # tracemalloc.start()
 
 def timetest(time_range, r):
+    zero_count = 0
     data_df = pd.DataFrame(columns=['time', 'lat', 'long', 'ratio'])
     # parquetdataname = "C:/ticketdodger/python/data/test/testdata.parquet"
     # data_df = pd.read_parquet(parquetdataname)
@@ -50,30 +52,46 @@ def timetest(time_range, r):
         endtime = starttime[:2] + "59"
         parquetname = "data/tickets_" + starttime + "_to_" + endtime + ".parquet"
         df = pd.read_parquet(parquetname)
-
-        lng_range = 115529.80704000004
-        lat_range = 114956.93543999991
-        lng_max = 638458.22016  # State line meters 0405
-        lng_min = 522928.41312  # State line meters 0405
-        lat_max = 2027717.99688  # State line meters 0405
-        lat_min = 1912761.06144  # State line meters 0405
+        # Full data range
+        # lng_range = 115529.80704000004
+        # lat_range = 114956.93543999991
+        # lng_max = 638458.22016  # State line meters 0405
+        # lng_min = 522928.41312  # State line meters 0405
+        # lat_max = 2027717.99688  # State line meters 0405
+        # lat_min = 1912761.06144  # State line meters 0405
+        # just downtown core
+        # lng_range = 49538.762
+        # lat_range = 37701.149
+        lng_max = 572548.325  # State line meters 0405
+        lng_min = 523009.563  # State line meters 0405
+        lat_max = 1986392.399  # State line meters 0405
+        lat_min = 1948691.250  # State line meters 0405
+        lng_range = lng_max - lng_min
+        lat_range = lat_max - lat_min
+        grid_increment = 5
+        lng_grids = math.ceil(lng_range / grid_increment)
+        lat_grids = math.ceil(lat_range / grid_increment)
 
         for y in trange(r, desc="count loop"):
             #ddf = df
             # print("starting rep: " + str(y))
             random_x = random.random()
             random_y = random.random()
-            x2 = (random_x * lat_range) + lat_min
+            x2 = (random_x * lat_grids * grid_increment) + lat_min
 
             # print("random lat: " + str(x2))
-            y2 = (random_y * lng_range) + lng_min
+            y2 = (random_y * lng_grids * grid_increment) + lng_min
             # print("random long: " + str(y2))
-            timetotal = len(df.index)
+            # timetotal = len(df.index)
             # print("len of df: " + str(timetotal))
-            areatotal = len(df[(df.Latitude >= (x2 - 1000)) & (df.Latitude <= (x2 + 1000)) & (df.Longitude >= (y2 - 1000)) & (df.Longitude <= (y2 + 1000))].index)
+            areatotal = len(df[(df.Latitude >= (x2 - 500)) & (df.Latitude <= (x2 + 500)) & (df.Longitude >= (y2 - 500)) & (df.Longitude <= (y2 + 500))].index)
             # areatotal = len(ddf.index)
             # print("area ticket ratio: " + str(areatotal / timetotal))
-            ratio = (areatotal / timetotal)
+            ratio = (areatotal / 1133)
+            if ratio == 0:
+                zero_count += 1
+            # if ratio > 0:
+            #     ratio = 1
             # print(ratio)
             # print(ddf)
 
@@ -87,6 +105,9 @@ def timetest(time_range, r):
 
     data_df = data_df.append(dictionary_df)
     # data_df.to_parquet(parquetdataname)
+    print("zero ratio = " + str(zero_count / (r * time_range)))
+    # remove all zero instances
+    # data_df = data_df.tail((r * 24) - zero_count)
     return data_df
 
 
@@ -140,22 +161,19 @@ def timetest(time_range, r):
 # df = pd.read_parquet(parquetdataname)
 
 model = Sequential()
-model.add(Dense(4, input_dim=3, activation='relu'))
-model.add(Dense(4, activation='relu'))
-model.add(Dense(8, activation='relu'))
-model.add(Dense(16, activation='relu'))
-model.add(Dense(32, activation='relu'))
+model.add(Dense(10, input_dim=3, activation='relu'))
+model.add(Dense(10, activation='relu'))
 model.add(Dense(1, activation='sigmoid'))
 
 model.compile(loss='binary_crossentropy', optimizer='Adam', metrics=['accuracy'])
 
 # model = tf.keras.models.load_model('proper_ticket_risk_modelv2.h5')
 
-for j in range(100):
+for j in range(5):
     print("loop " + str(j + 1))
-    df = timetest(24, 100)
+    df = timetest(1, 1000)
     df = df.sort_values('ratio')
-    df = df.tail(400)
+    # df = df.tail(400)
     print(df)
 
     target = df.pop('ratio')
@@ -163,8 +181,8 @@ for j in range(100):
 
     print(df.shape)
 
-    train_dataset = dataset.shuffle(len(df)).batch(0.7)
-    test_dataset = dataset.shuffle(len(df)).batch(0.3)
+    train_dataset = dataset.shuffle(len(df)).batch(1)
+    # test_dataset = dataset.shuffle(len(df)).batch(0.3)
 
 
     # for feat, targ in dataset.take(5):
@@ -173,9 +191,9 @@ for j in range(100):
 
     # # model loader
     # model = tf.keras.models.load_model('C:/ticketdodger/python/proper_ticket_risk_model.h5')
-    model.fit(train_dataset, epochs=1)
+    model.fit(train_dataset, epochs=5, verbose=1)
 
-    _, accuracy = model.evaluate(test_dataset)
+    _, accuracy = model.evaluate(train_dataset)
     print('Accuracy: %.2f' % (accuracy * 100))
 
 
@@ -200,7 +218,7 @@ for j in range(100):
 # evaluate the keras model
 
 
-model.save('proper_ticket_risk_modelv2.h5')
+model.save('downtown_ticket_risk_modelv2.h5')
 
 # for feat, targ in dataset.take(5):
 #   print ('Features: {}, Target: {}'.format(feat, targ))
