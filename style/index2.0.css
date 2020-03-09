@@ -1,0 +1,427 @@
+@import url(https://fonts.googleapis.com/css?family=Cabin:400);
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    background-image: url("https://www.dropbox.com/s/2ct0i6kc61vp0bh/wall.jpg?raw=1");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*************** h1 title "TICKETDODGER" ***************/
+.neon {
+    position: absolute;
+    overflow: hidden;
+    filter: brightness(200%);
+    top: 10em;
+}
+
+.text {
+    background-color: black;
+    color: white;
+    font-size: 150px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    position: relative;
+    user-select: none;
+}
+
+.text::before {
+    content: attr(data-text);
+    position: absolute;
+    color: white;
+    filter: blur(0.02em);
+    mix-blend-mode: difference;
+}
+
+.gradient {
+    position: absolute;
+    background: linear-gradient(45deg, #245A97, #B0B0B0, #FFFFFF, #223B75, #E4002B,#245A97, #B0B0B0, #FFFFFF, #223B75, #E4002B);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    mix-blend-mode: multiply;
+}
+
+.spotlight {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(
+            circle,
+            white,
+            transparent 25%
+        ) center / 25% 25%,
+        radial-gradient(
+            circle,
+            white,
+            black 25%
+        ) center / 12.5% 12.5%;
+    animation: light 5s linear infinite;
+    mix-blend-mode: color-dodge;
+}
+
+@keyframes light {
+    to {
+        transform: translate(50%, 50%);
+    }
+}
+/*************** h1 title "TICKETDODGER" end ***************/
+
+
+/*************** search bar ***************/
+.webdesigntuts-workshop {
+	background: black;
+	height: 0;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+}
+
+.webdesigntuts-workshop:before,
+.webdesigntuts-workshop:after {
+	content: '';
+	display: block;	
+	height: 1px;
+	left: 50%;
+	margin: 0 0 0 -400px;
+	position: absolute;
+	width: 800px;
+}
+/******** gray line *******/
+/*
+.webdesigntuts-workshop:before {
+	background: #444;
+	background: linear-gradient(left, #151515, #444, #151515);
+	top: 100px;
+}
+
+.webdesigntuts-workshop:after {
+	background: #000;
+	background: linear-gradient(left, #151515, #000, #151515);	
+	top: 111px;
+}
+*/
+.webdesigntuts-workshop form {
+	display: inline-block;
+	font-size: 0px;
+	margin: 50px auto 0;
+	padding: 20px;
+	position: relative;
+	z-index: 1;
+}
+
+.webdesigntuts-workshop input {
+/*	background: #222;	*/
+    background: white;
+	background: linear-gradient(#333, #222);	
+	border: 1px solid #444;
+	border-radius: 5px 0 0 5px;
+	box-shadow: 0 2px 0 #000;
+	color: #888;
+	display: block;
+	float: left;
+	font-family: 'Cabin', helvetica, arial, sans-serif;
+	font-size: 15px;
+	font-weight: 400;
+	height: 50px;
+	margin: 0;
+	padding: 0 10px;
+	text-shadow: 0 -1px 0 #000;
+	width: 300px;
+}
+
+.ie .webdesigntuts-workshop input {
+	line-height: 40px;
+}
+
+.webdesigntuts-workshop input::-webkit-input-placeholder {
+   color: #888;
+}
+
+.webdesigntuts-workshop input:-moz-placeholder {
+   color: #888;
+}
+
+/********* input focus *********/
+.webdesigntuts-workshop input:focus {
+	animation: glow 800ms ease-out infinite alternate;
+	background: #222922;
+	background: linear-gradient(#333933, #222922);
+/*	border-color: #E4002B;*/
+    border: 1px #E4002B solid;
+	box-shadow: 0 0 5px rgba(228, 0, 43,.2), inset 0 0 5px rgba(228, 0, 43,.1), 0 2px 0 #000;
+	color: #FFFFFF;
+	outline: none;
+}
+
+.webdesigntuts-workshop input:focus::-webkit-input-placeholder { 
+	color: #FFFFFF;
+}
+
+.webdesigntuts-workshop input:focus:-moz-placeholder {
+	color: #FFFFFF;
+}
+/********* input focus end *********/
+
+.webdesigntuts-workshop button {
+	background: #222;
+	background: linear-gradient(#333, #222);
+	box-sizing: border-box;
+	border-left-color: #000;
+	border-radius: 0 5px 5px 0;
+	box-shadow: 0 2px 0 #000;
+	color: #fff;
+	display: block;
+	float: left;
+	font-family: 'Cabin', helvetica, arial, sans-serif;
+	font-size: 15px;
+	font-weight: 400;
+	height: 50px;
+	line-height: 40px;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	text-shadow: 0 -1px 0 #000;
+	width: 100px;
+}	
+
+.webdesigntuts-workshop button:hover,
+.webdesigntuts-workshop button:focus {
+	background: #292929;
+	background: linear-gradient(#393939, #292929);
+	color: #245A97;
+	outline: none;
+}
+
+.webdesigntuts-workshop button:active {
+	background: #292929;
+	background: linear-gradient(#393939, #292929);
+	box-shadow: 0 1px 0 #000, inset 1px 0 1px #222;
+	top: 1px;
+}
+
+@keyframes glow {
+    0% {
+		border-color: #245A97;
+		box-shadow: 0 0 5px rgba(0,255,0,.2), inset 0 0 5px rgba(0,255,0,.1), 0 2px 0 #000;
+    }	
+    100% {
+		border-color: #FFFFFF;
+		box-shadow: 0 0 20px rgba(0,255,0,.6), inset 0 0 10px rgba(0,255,0,.4), 0 2px 0 #000;
+    }
+}
+/*************** search bar end ***************/
+
+
+/*************** slogan ***************/
+.sign {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Vibur", cursive;
+}
+
+.sign__word {
+    font-size: 3rem;
+    text-align: center;
+    line-height: 1;
+    color: #FFFFFF;
+    animation: neon 0.08s ease-in-out infinite alternate;
+  }
+/*-- Animation Keyframes --*/
+@keyframes neon {
+  from {
+    text-shadow:
+    0 0 6px rgba(202,228,225,0.92),
+    0 0 30px rgba(202,228,225,0.34),
+    0 0 12px rgba(30,132,242,0.52),
+    0 0 21px rgba(30,132,242,0.92),
+    0 0 34px rgba(30,132,242,0.78),
+    0 0 54px rgba(30,132,242,0.92);
+  }
+  to {
+    text-shadow:
+    0 0 6px rgba(202,228,225,0.98),
+    0 0 30px rgba(202,228,225,0.42),
+    0 0 12px rgba(30,132,242,0.58),
+    0 0 22px rgba(30,132,242,0.84),
+    0 0 38px rgba(30,132,242,0.88),
+    0 0 60px rgba(30,132,242,1);
+  }
+}
+/*// Link*/
+.link {
+	position: absolute;
+	bottom: 10px; left: 10px;
+	color: #828282;
+	text-decoration: none;
+	
+	&:focus,
+	&:hover {
+    color: #c6e2ff;
+		text-shadow:
+    0 0 2px rgba(202,228,225,0.92),
+    0 0 10px rgba(202,228,225,0.34),
+    0 0 4px rgba(30,132,242,0.52),
+    0 0 7px rgba(30,132,242,0.92),
+    0 0 11px rgba(30,132,242,0.78),
+    0 0 16px rgba(30,132,242,0.92);
+	}
+}
+/*************** slogan end ***************/
+
+
+/*************** LA ***************/
+.la {
+    position: absolute;
+    top: 35em;
+    left: 20%;
+    font-size: 1em;
+    color: #E4002B;
+    text-shadow: 2px 2px 2px #165d87, 4px 8px 5px rgba(0,0,0,0.08);
+    display: flex;
+    flex-flow: row wrap;
+    font-family: sans-serif;
+}
+.iconimg {
+    width: 23px;
+    display: inline-block;
+    margin-right: 0.5em;
+}
+.los {
+    display: inline-block;
+    margin-right: 0.5em;
+}
+.angeles {
+    flex: auto;
+}
+/*************** LA end ***************/
+
+
+/*************** time picker ***************/
+.clock {
+  height:100px;
+  position:absolute;
+  top:80%;
+  left:50%;
+  width:900px;
+  margin-left:-450px;
+  margin-top:-100px;
+  text-align:center;
+}
+ 
+.digit {
+  width:52px;
+  height:80px;
+  margin:0;
+  position:relative;
+  display:inline-block;
+}
+ 
+.digit .segment {
+  background:#c00;
+  border-radius:5px;
+  position:absolute;
+  opacity:0.15;
+  transition:opacity 0.2s;
+  -webkit-transition:opacity 0.2s;
+  -ms-transition:opacity 0.2s;
+  -moz-transition:opacity 0.2s;
+  -o-transition:opacity 0.2s;
+}
+ 
+.digit .segment.on, .separator {
+  opacity:1;
+  box-shadow:0 0 10px rgba(255,0,0,0.7);
+  transition:opacity 0s;
+  -webkit-transition:opacity 0s;
+  -ms-transition:opacity 0s;
+  -moz-transition:opacity 0s;
+  -o-transition:opacity 0s;
+}
+ 
+.separator {
+  width:10px;
+  height:10px;
+  background:#c00;
+  border-radius:50%;
+  display:inline-block;
+  position:relative;
+  top:-35px;
+}
+ 
+.digit .segment:nth-child(1) {
+  top:10px;
+  left:20px;
+  right:20px;
+  height:10px;
+}
+ 
+.digit .segment:nth-child(2) {
+  top:20px;
+  right:10px;
+  width:10px;
+  height:75px;
+  height:calc(50% - 25px);
+}
+ 
+.digit .segment:nth-child(3) {
+  bottom:20px;
+  right:10px;
+  width:10px;
+  height:75px;
+  height:calc(50% - 25px);
+}
+ 
+.digit .segment:nth-child(4) {
+  bottom:10px;
+  right:20px;
+  height:10px;
+  left:20px;
+}
+ 
+.digit .segment:nth-child(5) {
+  bottom:20px;
+  left:10px;
+  width:10px;
+  height:75px;
+  height:calc(50% - 25px);
+}
+ 
+.digit .segment:nth-child(6) {
+  top:20px;
+  left:10px;
+  width:10px;
+  height:75px;
+  height:calc(50% - 25px);
+}
+ 
+.digit .segment:nth-child(7) {
+  bottom:95px;
+  bottom:calc(50% - 5px);
+  right:20px;
+  left:20px;
+  height:10px;
+}
+
+/******************** reference **********************
+
+Shimmering neon text From Codepen by Comehope: https://codepen.io/comehope/pen/GBwvxw
+
+Glowing Pulse Form Codepen by Jack Rugile: https://codepen.io/jackrugile/pen/ABeIi
+
+Neon effect From Codepen by Mark Heggan: https://codepen.io/markheggan/full/LjrVYN
+
+*****************************************************/
