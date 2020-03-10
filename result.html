@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<head>
+    <!--------------- add title & css link -------------->
+    <title>TicketDodger| Result</title>
+    <link rel="stylesheet" type="text/css" href="style/result.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Shadows+Into+Light+Two&display=swap" rel="stylesheet">
+    <!--------------- add title & css link end -------------->
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@1.22.0/build/global/luxon.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/smoothstate@0.7.2/src/jquery.smoothState.min.js"></script>
+
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_611ae1ea252342b3a610c004d09e0358 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                    /****************** set layer *****************/
+/*                    z-index: -1;*/
+                }
+            </style>
+        
+    <script src="https://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"></script>
+</head>
+<body id="main" class="m-scene">
+    
+    <!-- add loading circle, react? -->
+    
+    <!------------------------- add header ---------------------->
+    <header id="myHeader" class="m-aside scene_element scene_element--fadeinright">
+        <!-- logo title -->
+        <div class="logo">
+            <h1><a class="h1" href="index2.0.html">TicketDodger</a></h1>
+        </div>
+        <div class="text">
+            <div class="gpsicon">
+                <img  class="iconimg" src="../../img/pin.png" alt="location icon">
+            </div>
+            <div class="los">
+                <span id="l">L</span>
+                <span id="o">o</span>
+                <span id="s">s </span>
+            </div>
+            <div class="angeles">
+                <span id="a">A</span>
+                <span id="n">n</span>
+                <span id="g">g</span>
+                <span id="e">e</span>
+                <span id="l2">l</span>
+                <span id="e2">e</span>
+                <span id="s2">s</span>
+            </div>   
+        </div>
+        
+        <!----------------- set timeslot ---------------->
+        <div class="timeslot">
+            <form action="result.html" method="get">
+                <label>Arrive at</label>
+                <select>
+                    <option>12:00 AM</option>
+                    <option>12:00 AM</option>
+                    <option>12:00 AM</option>
+                    <option>12:00 AM</option>
+                    <option>12:00 AM</option>
+                    <option>12:00 AM</option>
+                    <option>12:00 AM</option>
+                </select>
+                <input class="submitbtn" type="submit" value="Start Dodge">
+            </form>
+        </div>
+        <!----------------- set timeslot end ---------------->
+        
+        
+        <div class="contact">
+            <a href="">CONTACT US</a>
+        </div>     
+    <!--
+        <div class="text">
+            <div class="icon">
+                <img  class="iconimg" src="img/pin.png" alt="location icon">
+            </div>
+            <div class="los">
+                <span id="l">L</span>
+                <span id="o">O</span>
+                <span id="s">S </span>
+            </div>
+            <div class="angeles">
+                <span id="a">A</span>
+                <span id="n">N</span>
+                <span id="g">G</span>
+                <span id="e">E</span>
+                <span id="l2">L</span>
+                <span id="e2">E</span>
+                <span id="s2">S</span>
+            </div>   
+        </div>
+    -->
+    </header> 
+    <!------------------------- add header end ---------------------->
+    
+    <!------------------------- add result block ---------------------->
+    <div class="resultContainer m-right-panel m-page scene_element scene_element--fadein">
+        <div class="gobacklink">
+            <a href="/">Back to location input</a>
+        </div>
+        <div class="result">
+            <p class="resultText">
+                The oppurtunity to get a parking ticket<br>
+                at 
+                <!-- use js -->
+                <span id="address">M1W 7B2</span>
+                <span class="realtime">18:16:56</span><br>is 
+                <span id="level">SMALL</span>
+                <span>
+                    <!-- use js -->
+                    <img class="icon levelicon" src="../../img/smile.png" alt="smile face">
+                </span>
+            </p>
+            <!----------- icon copyright ------------>
+            <div class="iconcopyright">Icons made by <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            <div class="iconcopyright">Icons made by <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></div>
+            <div class="iconcopyright">Icons made by <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></div>
+            <!-- pack: https://www.flaticon.com/free-icon/smile_742751 -->
+            <!----------- icon copyright end ------------>
+            
+            <div class="suggestion">
+                It's safe to park your car there. <br>
+            </div>
+            Check the real time heat map.
+            <span class="point">
+                <img class="icon fingericon" src="../../img/finger.png">
+            </span>
+            <!----------- icon copyright ------------>
+            <div class="iconcopyright">Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></div>
+            <!----------- icon copyright end ------------>
+            
+        </div>
+    </div>
+    <!------------------------- add result block end ---------------------->
+    
+    
+    <!--------------------- MAP --------------------->
+    <div class="folium-map m-right-panel m-page scene_element scene_element--fadeinright" id="map_611ae1ea252342b3a610c004d09e0358" ></div>
+    
+    <div id="footer" class="m-right-panel m-page scene_element scene_element--fadeinright">
+        <p class="copyright">
+            All Rights Reserved © 2020-02 Web developer Chris, Ella 
+        </p>
+    </div>
+
+</body>
+
+<!----------------- header fixed ---------------->
+<script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+</script>
+<script src="scripts/map.js"></script>
+<script src="scripts/smooth.js"></script>
+<!----------------- header fixed ---------------->
+</html>

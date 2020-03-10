@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, jsonify, send_from_directory
+from flask import Flask, request, render_template, jsonify, send_from_directory, url_for
 import requests
 import numpy as np
 import pandas as pd
@@ -17,7 +17,7 @@ app = Flask(__name__, static_folder='../')
 
 @app.route('/')
 def index():
-    return send_from_directory(app.static_folder, 'index.html')
+    return send_from_directory(app.static_folder, 'index2.0.html')
 # CORS(app)
 
 # @app.route('/')
@@ -29,6 +29,9 @@ def index():
 # def index():
 #     return print('connected')
 
+@app.route('/result')
+def result():
+    return send_from_directory(app.static_folder, 'result.html')
 
 @app.route('/map', methods=['POST'])
 def process():
@@ -38,7 +41,7 @@ def process():
     endtime = starttime[:2] + "59"
     parquetname = "C:/ticketdodger/python/data/mini/mintickets_" + starttime + "_to_" + endtime + ".parquet"
     df = pd.read_parquet(parquetname)
-    cache_df = df;
+    cache_df = df
     # new_df = df;
     # cache_df = df;
     # print(df)

@@ -4,12 +4,28 @@
         <title>TicketDodger</title>  
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" type="text/css" href="style/index2.0.css">
-		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">   
-    </head>
-    <body>	
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
 
+        <script src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
+        <link  href="https://unpkg.com/leaflet-geosearch@latest/assets/css/leaflet.css" rel="stylesheet" />
+        <script src="https://unpkg.com/leaflet-geosearch@latest/dist/bundle.min.js"></script>
+        <script
+                src="https://code.jquery.com/jquery-3.4.1.min.js"
+                integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+                crossorigin="anonymous"></script>
+
+
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/luxon@1.22.0/build/global/luxon.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/smoothstate@0.7.2/src/jquery.smoothState.min.js"></script>
+        <script src="scripts/smooth.js"></script>
+
+    </head>
+    <body id="main" class="m-scene">
+<!--    <div id="main" class="m-scene">-->
         <!---------------------------- h1 title "TICKETDODGER" ---------------------------->
-        <div class="neon">
+        <div class="neon m-header scene_element scene_element--fadeinup">
           <span class="text" data-text="ticketdodger">ticketdodger</span>
           <span class="gradient"></span>
           <span class="spotlight"></span>
@@ -17,19 +33,29 @@
         
 
         <!---------------------------- slogan ------------------------------>
-        <div class="sign">
+        <div class="sign m-page scene_element scene_element--fadeinup">
             <span class="sign__word">no parking ticket today</span>
         </div>
         
         
         
         <!---------------------------- search bar ---------------------------->
-        <section class="webdesigntuts-workshop">
-            <form action="" method="get">		    
-                <input type="search" placeholder="Where do you want to park?">		    	
-                <button>Start Dodger</button>
+        <section class="webdesigntuts-workshop m-page scene_element scene_element--fadeinup">
+            <form action="" method="get" id="search_form">
+                <input type="search" id="search_input" placeholder="Where do you want to park?">
+                <span id="error_message"></span>
+                <button id="search_button">Start Dodger</button>
             </form>
         </section>
+
+        <div class="hidden">
+            <form action="/result" method="get" id="hidden_form">
+
+                <input id="lat" name="lat" type="text" class="hidden" value="" />
+                <input id="long" name="long" class="hidden" type="text" value="" />
+<!--                <button id="search_button">Start Dodger</button>-->
+            </form>
+        </div>
         
         
         <!---------------------------- LA ---------------------------->
@@ -52,11 +78,11 @@
                 <span id="s2">S</span>
             </div>   
         </div>
-        
+<!--    </div>-->
         <!------------ time picker ----------->
         
         
-        
+        <script src="scripts/splash.js"></script>
 <!--	<script src="scripts/script.js"></script>-->
     </body>
 </html>

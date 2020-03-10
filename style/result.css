@@ -1,14 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway|Shadows+Into+Light+Two&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Raleway|Shadows+Into+Light+Two&display=swap");
 /******************** GENERAL setting *********************/
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Raleway';
-    color: #165d87;
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway";
+  color: #165d87;
 }
+
 /*
 body::after {
     content: "";
@@ -24,84 +26,93 @@ body::after {
 }
 */
 a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
-a:hover {
-    text-decoration: none;
-}
-/******************** GENERAL setting end *********************/
 
+a:hover {
+  text-decoration: none;
+}
+
+/******************** GENERAL setting end *********************/
 /******************** HEADER *********************/
 #myHeader {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-flow: row wrap;
-    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.1), 0 5px 3px 0 rgba(0,0,0,0.1);
-    /* perfect layer setting, can make the +- button be seen */
-    z-index: 999;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-flow: row wrap;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1), 0 5px 3px 0 rgba(0, 0, 0, 0.1);
+  /* perfect layer setting, can make the +- button be seen */
+  z-index: 999;
 }
+
 #myHeader::after {
-    content: "";
-    background: #faf3f0;
-    opacity: 0.88;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;   
+  content: "";
+  background: #faf3f0;
+  opacity: 0.88;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
 }
+
 .logo {
-    padding-left: 3em;
-    padding-bottom: 0.5em;
-    font-family: 'Shadows Into Light Two';
-    color: #165d87;
-    font-size: 2em;
-    text-shadow: 2px 3px 5px #b1bdd4;
-    font-weight: bolder;
+  padding-left: 3em;
+  padding-bottom: 0.5em;
+  font-family: "Shadows Into Light Two";
+  color: #165d87;
+  font-size: 2em;
+  text-shadow: 2px 3px 5px #b1bdd4;
+  font-weight: bolder;
 }
+
 .contact {
-    position: absolute;
-    right: 3em;
-    top: 40%;
-    color: #165d87;
+  position: absolute;
+  right: 3em;
+  top: 40%;
+  color: #165d87;
 }
 
 .text {
-    position: absolute;
-    top: 40%;
-    left: 22%;
-    right: 20%;
-    font-size: 1em;
-    color: #d93f4b;
-    font-weight: bolder;
-    font-style: italic;
-    display: flex;
-    flex-flow: row wrap;
-    letter-spacing: -0.1em;
+  position: absolute;
+  top: 40%;
+  left: 22%;
+  right: 20%;
+  font-size: 1em;
+  color: #d93f4b;
+  font-weight: bolder;
+  font-style: italic;
+  display: flex;
+  flex-flow: row wrap;
+  letter-spacing: -0.1em;
 }
+
 /** GPS icon **/
 .gpsicon {
-    margin: 0;
-    width: 23px;
+  margin: 0;
+  width: 23px;
 }
+
 .iconimg {
-    width: 23px;
-    display: inline-block;
-    margin-right: 0;
-    padding: 0;
+  width: 23px;
+  display: inline-block;
+  margin-right: 0;
+  padding: 0;
 }
+
 .los {
-    display: inline-block;
-    margin-right: 0.5em;
+  display: inline-block;
+  margin-right: 0.5em;
 }
+
 .angeles {
-    flex: auto;
+  flex: auto;
 }
+
 /**** "LOS ANGELES" text animation ***
 #l {
     font-size: 1em;
@@ -169,141 +180,213 @@ a:hover {
 */
 /************ timeslot *************/
 .timeslot {
-    position: absolute;
-    left: 40%;
-    top: 30%;
-    font-size: 1.2em;
-    color: #165d87;
+  position: absolute;
+  left: 40%;
+  top: 30%;
+  font-size: 1.2em;
+  color: #165d87;
 }
+
 .submitbtn {
-    display: inline-block;
-    border: none;
-    padding-left: 1em;
-    font-size: 1.2em;
-    font-family: 'Shadows Into Light Two';
-    color: #165d87;
-    background: none;
-    text-shadow: 1px 1px 1px #b1bdd4;
+  display: inline-block;
+  border: none;
+  padding-left: 1em;
+  font-size: 1.2em;
+  font-family: "Shadows Into Light Two";
+  color: #165d87;
+  background: none;
+  text-shadow: 1px 1px 1px #b1bdd4;
 }
+
 /************ timeslot end *************/
-
 /******************** HEADER end *********************/
-
 /******************** RESULT block *******************/
 .gobacklink {
-    padding-top: 1em;
-    padding-left: 2.5em;
-    font-size: 1em;
-    font-weight: bold;
+  padding-top: 1em;
+  padding-left: 2.5em;
+  font-size: 1em;
+  font-weight: bold;
 }
+
 .resultContainer {
-    position: absolute;
-    top: 6em;
-    left: 0;
-    z-index: 9999;
-    font-family: 'Raleway';
-    color: #165d87;
+  position: absolute;
+  top: 6em;
+  left: 0;
+  z-index: 9999;
+  font-family: "Raleway";
+  color: #165d87;
 }
+
 .resultContainer::after {
-    content: "";
-    background: #faf3f0;
-    opacity: 1;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;   
-    border-radius: 0.7em;
-    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.1), 0 5px 3px 0 rgba(0,0,0,0.1); 
+  content: "";
+  background: #faf3f0;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  border-radius: 0.7em;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1), 0 5px 3px 0 rgba(0, 0, 0, 0.1);
 }
+
 .result {
-    z-index: 9999;
-    padding: 0.8em 2em;
-    margin: 0;
-    font-size: 1.1em;
-    line-height: 2.5em;
-    margin: 0;
+  z-index: 9999;
+  padding: 0.8em 2em;
+  margin: 0;
+  font-size: 1.1em;
+  line-height: 2.5em;
+  margin: 0;
 }
+
 .resultText {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
+
 #address {
-    font-size: 1.5em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    text-decoration: underline;
-    font-weight: bold;
+  font-size: 1.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  text-decoration: underline;
+  font-weight: bold;
 }
+
 .realtime {
-    font-size: 1.5em;
-    padding-left: 0.5em;
-    text-decoration: underline;
-    font-weight: bold;
+  font-size: 1.5em;
+  padding-left: 0.5em;
+  text-decoration: underline;
+  font-weight: bold;
 }
+
 #level {
-    font-size: 2em;
-    padding-left: 0.8em;
-    padding-right: 0.2em;
-    /*** use js change color ***/
-    color: #66cc76;
-    font-weight: bold;
-    line-height: 1.8em;
-    vertical-align: middle;
+  font-size: 2em;
+  padding-left: 0.8em;
+  padding-right: 0.2em;
+  /*** use js change color ***/
+  color: #66cc76;
+  font-weight: bold;
+  line-height: 1.8em;
+  vertical-align: middle;
 }
+
 .icon {
-    width: 40px;
-    margin-left: 1em;
+  width: 40px;
+  margin-left: 1em;
 }
+
 .suggestion {
-    font-size: 1.3em;
-    font-weight: bold;
+  font-size: 1.3em;
+  font-weight: bold;
 }
+
 .point {
-    line-height: 3em;
-} 
+  line-height: 3em;
+}
+
 .fingericon {
-    width: 50px;
+  width: 50px;
 }
+
 .iconcopyright {
-    position: absolute;
-    left: -10000em;
+  position: absolute;
+  left: -10000em;
 }
+
 /******************** RESULT block end *******************/
-
 /******************** FOOTER *********************/
-
 .bg__white-transparent {
-    background: #faf3f0;;
-    opacity: 0.5;
+  background: #faf3f0;
+  opacity: 0.5;
 }
+
 #footer {
-    z-index: 999;
-    width: 100%;
-    height: 1.1em;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+  z-index: 999;
+  width: 100%;
+  height: 1.1em;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
+
 #footer::after {
-    z-index: -1;
-    content: "";
-    background: #faf3f0;;
-    opacity: 0.5;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
+  z-index: -1;
+  content: "";
+  background: #faf3f0;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
 }
+
 .copyright {
-    margin: 0 auto;
-    color: #165d87;
-    font-size: 0.9em;
+  margin: 0 auto;
+  color: #165d87;
+  font-size: 0.9em;
 }
+
 /******************** FOOTER end *********************/
+/*
+ * Keyframes
+ */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+/*
+ * CSS Page Transitions
+ * Don't forget to add vendor prefixes!
+ */
+.m-scene {
+  /** Reverse "exit" animations */
+}
+.m-scene .scene_element {
+  animation-duration: 0.25s;
+  transition-timing-function: ease-in;
+  animation-fill-mode: both;
+}
+.m-scene .scene_element--fadein {
+  animation-name: fadeIn;
+}
+.m-scene .scene_element--fadeinup {
+  animation-name: fadeInUp;
+}
+.m-scene .scene_element--fadeinright {
+  animation-name: fadeInRight;
+}
+.m-scene.is-exiting .scene_element {
+  animation-direction: alternate-reverse;
+}
+
+/*# sourceMappingURL=result.css.map */

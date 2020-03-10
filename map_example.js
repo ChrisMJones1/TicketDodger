@@ -53,7 +53,7 @@ $(document).ready(function () {
             } else {
                 validsearch = false;
                 $("#searchform__error").innerHTML = "Error finding address / address out of range"
-                return;
+                return false;
             }
 
             if(validsearch === true){
