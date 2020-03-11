@@ -2,7 +2,7 @@
 <head>
     <!--------------- add title & css link -------------->
     <title>TicketDodger| Result</title>
-    <link rel="stylesheet" type="text/css" href="style/result.css">
+    <link rel="stylesheet" type="text/css" href="style/result.css?1.1">
     <link href="https://fonts.googleapis.com/css?family=Raleway|Shadows+Into+Light+Two&display=swap" rel="stylesheet">
     <!--------------- add title & css link end -------------->
     
@@ -13,7 +13,12 @@
         </script>
     
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<!--    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>-->
+
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/luxon@1.22.0/build/global/luxon.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
@@ -52,7 +57,7 @@
     <header id="myHeader" class="m-aside scene_element scene_element--fadeinright">
         <!-- logo title -->
         <div class="logo">
-            <h1><a class="h1" href="index2.0.html">TicketDodger</a></h1>
+            <h1><a class="h1" href="/">TicketDodger</a></h1>
         </div>
         <div class="text">
             <div class="gpsicon">
@@ -76,21 +81,50 @@
         
         <!----------------- set timeslot ---------------->
         <div class="timeslot">
-            <form action="result.html" method="get">
+<!--            <form action="" method="get">-->
                 <label>Arrive at</label>
-                <select>
-                    <option>12:00 AM</option>
-                    <option>12:00 AM</option>
-                    <option>12:00 AM</option>
-                    <option>12:00 AM</option>
-                    <option>12:00 AM</option>
-                    <option>12:00 AM</option>
-                    <option>12:00 AM</option>
+                <select id="time_choice">
+                    <option value="current">current time</option>
+                    <option value="0">12:00 AM</option>
+                    <option value="1">1:00 AM</option>
+                    <option value="2">2:00 AM</option>
+                    <option value="3">3:00 AM</option>
+                    <option value="4">4:00 AM</option>
+                    <option value="5">5:00 AM</option>
+                    <option value="6">6:00 AM</option>
+                    <option value="7">7:00 AM</option>
+                    <option value="8">8:00 AM</option>
+                    <option value="9">9:00 AM</option>
+                    <option value="10">10:00 AM</option>
+                    <option value="11">11:00 AM</option>
+                    <option value="12">12:00 PM</option>
+                    <option value="13">1:00 PM</option>
+                    <option value="14">2:00 PM</option>
+                    <option value="15">3:00 PM</option>
+                    <option value="16">4:00 PM</option>
+                    <option value="17">5:00 PM</option>
+                    <option value="18">6:00 PM</option>
+                    <option value="19">7:00 PM</option>
+                    <option value="20">8:00 PM</option>
+                    <option value="21">9:00 PM</option>
+                    <option value="22">10:00 PM</option>
+                    <option value="23">11:00 PM</option>
                 </select>
-                <input class="submitbtn" type="submit" value="Start Dodge">
-            </form>
+<!--                <input class="submitbtn" type="submit" value="Start Dodge">-->
+<!--            </form>-->
         </div>
         <!----------------- set timeslot end ---------------->
+
+        <!----------------- set theme ---------------->
+        <div class="theme">
+                <label>Theme:</label>
+                <select id="theme">
+                    <option value="watercolor">Watercolor</option>
+                    <option value="light">Light Theme</option>
+                    <option value="dark">Dark Theme</option>
+                </select>
+        </div>
+        <!----------------- set theme end ---------------->
         
         
         <div class="contact">
@@ -127,16 +161,16 @@
         </div>
         <div class="result">
             <p class="resultText">
-                The oppurtunity to get a parking ticket<br>
+                The risk of getting a parking ticket<br>
                 at 
                 <!-- use js -->
-                <span id="address">M1W 7B2</span>
-                <span class="realtime">18:16:56</span><br>is 
-                <span id="level">SMALL</span>
-                <span>
-                    <!-- use js -->
-                    <img class="icon levelicon" src="../../img/smile.png" alt="smile face">
-                </span>
+                <span id="address"></span>
+                <span id="time" class="realtime">18:16:56</span><br>is
+                <span id="level"></span>
+<!--                <span>-->
+<!--                    &lt;!&ndash; use js &ndash;&gt;-->
+<!--                    <img class="icon levelicon" src="../../img/smile.png" alt="smile face">-->
+<!--                </span>-->
             </p>
             <!----------- icon copyright ------------>
             <div class="iconcopyright">Icons made by <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
@@ -145,8 +179,8 @@
             <!-- pack: https://www.flaticon.com/free-icon/smile_742751 -->
             <!----------- icon copyright end ------------>
             
-            <div class="suggestion">
-                It's safe to park your car there. <br>
+            <div id="risk_suggestion" class="suggestion">
+<!--                It's safe to park your car there. <br>-->
             </div>
             Check the real time heat map.
             <span class="point">
@@ -187,7 +221,7 @@ function myFunction() {
   }
 }
 </script>
-<script src="scripts/map.js"></script>
+<script src="scripts/map.js?1.1"></script>
 <script src="scripts/smooth.js"></script>
 <!----------------- header fixed ---------------->
 </html>

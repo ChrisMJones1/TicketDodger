@@ -32,6 +32,7 @@ $(document).ready(function () {
     }
     function render_search(result) {
         if (result.y >= 33.7030139 && result.y <= 34.7478410 && result.x <= -117.6972698 && result.x >= -118.9409686) {
+            $("#placename").val(address_input);
             $("#lat").val(result.y);
             $("#long").val(result.x);
             $("#hidden_form").submit();

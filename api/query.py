@@ -129,6 +129,7 @@ def search():
     endtime = starttime[:2] + "59"
     parquetname = "C:/ticketdodger/python/data/mini/mintickets_" + starttime + "_to_" + endtime + ".parquet"
     df = pd.read_parquet(parquetname)
+    # df_total = len(df.index)
 
 
     try:
@@ -156,14 +157,21 @@ def search():
     df = df[df_latfiltermin]
     df_latfiltermax = (df['new_lat'] <= maxlat)
     df = df[df_latfiltermax]
+    # current_ratio = len(df.index)
 
     x = df['new_lat'].values
     y = df['new_long'].values
 
     mapdata = np.transpose([x, y]).tolist()
+    x2 = float(bounds['centralpoint']['x'])
+    # print(x2)
+    y2 = float(bounds['centralpoint']['y'])
+    # print(y2)
+    current_ratio = len(df[(df.new_lat >= (y2 - 0.005)) & (df.new_lat <= (y2 + 0.005)) & (df.new_long >= (x2 - 0.005)) & (
+                df.new_long <= (x2 + 0.005))].index)
     # print(mapdata)
 
-    return jsonify({'latlongs': mapdata})
+    return jsonify({'latlongs': mapdata, 'count': current_ratio})
     # output = firstName + lastName
     # if firstName and lastName:
     #     return jsonify({'output':'Full Name: ' + output})

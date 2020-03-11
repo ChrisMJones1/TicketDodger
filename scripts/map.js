@@ -2,6 +2,7 @@ $(document).ready(function () {
     var DateTime = luxon.DateTime;
     var user_time = DateTime.local().setZone('America/Los_Angeles');
     var user_hour = user_time.hour;
+    $("#time").html(user_time);
 
     var loading = false;
     var new_max = false;
@@ -22,7 +23,7 @@ $(document).ready(function () {
     var validsearch;
 
     let searchParams = new URLSearchParams(window.location.search)
-
+    $("#address").html(searchParams.get('placename'));
     var getresults = {
         y: searchParams.get('lat'),
         x: searchParams.get('long')
@@ -47,11 +48,13 @@ $(document).ready(function () {
                     {
                         crs: L.CRS.EPSG3857,
                         zoom: 18,
-                        zoomControl: true,
+                        zoomControl: false,
                         preferCanvas: false,
                         // maxBounds: [[34.03336110903858, -118.24038889069691], [34.05336110903858, -118.26038889069691]],
                     }
                 ).setView([result.y, result.x], 14);
+                map_control = new L.Control.Zoom({ position: 'bottomright' }).addTo(map_611ae1ea252342b3a610c004d09e0358);
+                L.marker([result.y, result.x]).addTo(map_611ae1ea252342b3a610c004d09e0358);
 
 
                 // tile_layer_12702c5d484544a1afd7a770e13e3699 = L.tileLayer(
@@ -84,7 +87,7 @@ $(document).ready(function () {
                         ext: 'jpg'
                     }
                 ).addTo(map_611ae1ea252342b3a610c004d09e0358);
-                tile_layer2 = L.tileLayer(
+                tile_layer_2 = L.tileLayer(
                     "https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png",
                     {
                         "attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e",
@@ -112,8 +115,15 @@ $(document).ready(function () {
             current_bounds = map_611ae1ea252342b3a610c004d09e0358.getBounds();
             user_time = DateTime.local().setZone('America/Los_Angeles');
             user_hour = user_time.hour;
+
+            if($("#time_choice").val() !== 'current')
+            {
+                user_hour = $("#time_choice").val();
+            }
+
+            $('#theme').on('change', theme_change);
             $.ajax({
-                data : JSON.stringify({latlng: current_bounds, time: user_hour}),
+                data : JSON.stringify({latlng: current_bounds, time: user_hour, centralpoint: result}),
                 type : 'POST',
                 dataType: "json",
                 url : '/search',
@@ -124,6 +134,25 @@ $(document).ready(function () {
                     //     heat_map_9742ec1740444fea95c7fa38271f2180.addLatLng(entry);
                     // });
                     heat_map_9742ec1740444fea95c7fa38271f2180.setLatLngs(data.latlongs);
+                    let risklevel = "There were " + data.count + " tickets given out <br> in this area at this time of day";
+                    let risk_suggestion = "You will likely not get a ticket";
+                    if(data.count >= 500)
+                    {
+                        // risklevel = "high";
+                        risk_suggestion = "You will get a ticket, park elsewhere";
+                    }
+                    else if(data.count >= 100)
+                    {
+                        // risklevel = "medium";
+                        risk_suggestion = "You will probably get a ticket, consider parking elsewhere";
+                    }
+                    else if(data.count >= 10)
+                    {
+                        // risklevel = "low";
+                        risk_suggestion = "The risk of getting a ticket here is low";
+                    }
+                    $("#level").html(risklevel);
+                    $("#risk_suggestion").html(risk_suggestion);
                     current_cache = current_bounds;
                 }});
 
@@ -138,6 +167,26 @@ $(document).ready(function () {
         }
 
 
+    }
+
+    function theme_change()
+    {
+        switch (this.value) {
+            case 'watercolor':
+                tile_layer_1.setUrl('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}');
+                tile_layer_2.setUrl('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png');
+                break;
+
+            case 'dark':
+                tile_layer_1.setUrl('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png');
+                tile_layer_2.setUrl('');
+                break;
+
+            case 'light':
+                tile_layer_1.setUrl('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+                tile_layer_2.setUrl('');
+                break;
+        }
     }
 
 
@@ -169,8 +218,16 @@ $(document).ready(function () {
             var northeast = L.latLng(max_north, max_east);
             var southwest = L.latLng(max_south, max_west);
             // current_cache = {"_southWest":{"lat":33.60546961227188,"lng":-121.85485839843751},"_northEast":{"lat":34.492975402501536}
+
             user_time = DateTime.local().setZone('America/Los_Angeles');
             user_hour = user_time.hour;
+
+            if($("#time_choice").val() !== 'current')
+            {
+                user_hour = $("#time_choice").val();
+            }
+
+
             //Put in override here if condition for selecting a time instead
 
             update_cache = L.latLngBounds(northeast, southwest);
@@ -202,5 +259,9 @@ $(document).ready(function () {
         //     heat_map_9742ec1740444fea95c7fa38271f2180.setLatLngs(new_heatmap.latlongs);
         // });
         // event.preventDefault();
+    }
+    $('#time_choice').on('change', refresh_time);
+    function refresh_time() {
+        render_search(getresults);
     }
 });
