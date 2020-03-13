@@ -38,7 +38,9 @@ $(document).ready(function () {
             $("#hidden_form").submit();
         } else {
 
-            $("#error_message").html("Error finding address / address out of range");
+            $("#error_message").removeClass("d-none");
+            $("#form_glow").removeClass("glow");
+            $("#form_glow").addClass("glow-red");
             return false;
         }
     }

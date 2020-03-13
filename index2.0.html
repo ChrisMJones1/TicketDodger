@@ -22,34 +22,55 @@
         <script src="scripts/smooth.js"></script>
 
     </head>
-    <body id="main" class="m-scene">
-<!--    <div id="main" class="m-scene">-->
-        <!---------------------------- h1 title "TICKETDODGER" ---------------------------->
-        <div class="neon m-header scene_element scene_element--fadeinup">
-          <span class="text" data-text="ticketdodger">ticketdodger</span>
-          <span class="gradient"></span>
-          <span class="spotlight"></span>
-        </div>
-        
+    <body>
+        <main id="main" class="m-scene container">
 
-        <!---------------------------- slogan ------------------------------>
-        <div class="sign m-page scene_element scene_element--fadeinup">
-            <span class="sign__word">no parking ticket today</span>
-        </div>
+
+        <!---------------------------- h1 title "TICKETDODGER" ---------------------------->
+            <div class="container m-header scene_element scene_element--fadeinup my-4">
+                <div class="neon p-3">
+                    <div class="text text-center" data-text="ticketdodger">ticketdodger</div>
+                    <div class="gradient"></div>
+                    <span class="spotlight"></span>
+                </div>
+            </div>
+
+
+
         
         
         
         <!---------------------------- search bar ---------------------------->
-        <section class="webdesigntuts-workshop m-page scene_element scene_element--fadeinup">
+        <div class="container m-page scene_element scene_element--fadeinup my-2">
+<!--        <section class="webdesigntuts-workshop">-->
+<!--            <form action="" method="get" id="search_form">-->
+<!--                <input type="search" id="search_input" placeholder="Where do you want to park?">-->
+<!--                <span id="error_message"></span>-->
+<!--                <button id="search_button">Start Dodger</button>-->
+<!--            </form>-->
+<!--        </section>-->
             <form action="" method="get" id="search_form">
-                <input type="search" id="search_input" placeholder="Where do you want to park?">
-                <span id="error_message"></span>
-                <button id="search_button">Start Dodger</button>
+            <div id="form_glow" class="input-group mb-3 glow">
+
+                <input type="text" class="form-control bg-dark text-white" id="search_input" placeholder="Where do you want to park?" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <input class="btn btn-outline-secondary btn-dark text-white sign__word" value="Dodge!" type="submit"></input>
+                </div>
+
+            </div>
             </form>
-        </section>
+            <div id="error_message" class="d-none p-2 glow-red">Error finding address / address out of range</div>
+        </div>
+
+            <!---------------------------- slogan ------------------------------>
+            <div class="container">
+                <div class="sign m-page scene_element scene_element--fadeinup">
+                    <div class="sign__word text-center">no parking ticket today</div>
+                </div>
+            </div>
 
         <div class="hidden">
-            <form action="/result" method="get" id="hidden_form">
+            <form action="./result" method="get" id="hidden_form">
                 <input id="placename" name="placename" type="text" class="hidden" value="" />
                 <input id="lat" name="lat" type="text" class="hidden" value="" />
                 <input id="long" name="long" class="hidden" type="text" value="" />
@@ -78,10 +99,9 @@
                 <span id="s2">S</span>
             </div>   
         </div>
-<!--    </div>-->
         <!------------ time picker ----------->
-        
-        
+
+        </main>
         <script src="scripts/splash.js?1.1"></script>
 <!--	<script src="scripts/script.js"></script>-->
     </body>

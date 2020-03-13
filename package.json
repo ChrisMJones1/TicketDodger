@@ -1,0 +1,27 @@
+{
+  "name": "TicketDodger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "map_example.js",
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "stylelint": "^13.2.1",
+    "stylelint-scss": "^3.14.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisMJones1/TicketDodger.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChrisMJones1/TicketDodger/issues"
+  },
+  "homepage": "https://github.com/ChrisMJones1/TicketDodger#readme"
+}
