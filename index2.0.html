@@ -28,7 +28,7 @@
 
         <!---------------------------- h1 title "TICKETDODGER" ---------------------------->
             <div class="container m-header scene_element scene_element--fadeinup my-4">
-                <div class="neon p-3">
+                <div class="neon p-1">
                     <div class="text text-center" data-text="ticketdodger">ticketdodger</div>
                     <div class="gradient"></div>
                     <span class="spotlight"></span>
@@ -50,16 +50,17 @@
 <!--            </form>-->
 <!--        </section>-->
             <form action="" method="get" id="search_form">
-            <div id="form_glow" class="input-group mb-3 glow">
+                <div id="form_glow" class="input-group mb-3 glow">
 
-                <input type="text" class="form-control bg-dark text-white" id="search_input" placeholder="Where do you want to park?" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <input class="btn btn-outline-secondary btn-dark text-white sign__word" value="Dodge!" type="submit"></input>
+                    <input type="text" class="form-control bg-dark text-white" id="search_input" placeholder="Where do you want to park?" aria-label="Recipient's username" aria-describedby="basic-addon2"></input>
+                    <div class="input-group-append">
+                        <input class="btn btn-outline-secondary btn-dark text-white sign__word" value="Dodge!" type="submit"></input>
+                    </div>
+
                 </div>
-
-            </div>
             </form>
-            <div id="error_message" class="d-none p-2 glow-red">Error finding address / address out of range</div>
+<!--            <div id="error_message" class="d-none p-2 glow-red">Error finding address / address out of range</div>-->
+            <div id="error_message" class="d-none p-2">Hmm, that's seems not the correct address or address out of range.</div>
         </div>
 
             <!---------------------------- slogan ------------------------------>
