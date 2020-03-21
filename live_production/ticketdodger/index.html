@@ -14,8 +14,7 @@
                 integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
                 crossorigin="anonymous"></script>
 
-
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/luxon@1.22.0/build/global/luxon.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.css"/>
         <!--<script src="https://cdn.jsdelivr.net/npm/smoothstate@0.7.2/src/jquery.smoothState.min.js"></script>-->
@@ -24,77 +23,57 @@
 
     </head>
     <body>
-        <main id="main" class="m-scene container">
+        <main id="main" class="m-scene container mt-5">
 
 
-            <div class="container m-header scene_element scene_element--fadeinup my-4">
-                <div class="neon p-3">
+            <div class="container m-header scene_element scene_element--fadeinup mb-0">
+                <div class="neon py-1">
                     <div class="text text-center" data-text="ticketdodger">ticketdodger</div>
                     <div class="gradient"></div>
                     <span class="spotlight"></span>
                 </div>
             </div>
 
-
-
-        
-        
-        
-        <div class="container m-page scene_element scene_element--fadeinup my-2">
-
-            <form action="" method="get" id="search_form">
-            <div id="form_glow" class="input-group mb-3 glow">
-
-                <input type="text" class="form-control bg-dark text-white" id="search_input" placeholder="Where do you want to park?" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <input class="btn btn-outline-secondary btn-dark text-white sign__word" value="Dodge!" type="submit">
-                </div>
-
-            </div>
-            </form>
-            <div id="error_message" class="d-none p-2 glow-red">Error finding address / address out of range. Please enter a valid Los Angeles Address</div>
-        </div>
-
- 
             <div class="container">
-                <div class="sign m-page scene_element scene_element--fadeinup">
-                    <div class="sign__word text-center">no parking ticket today</div>
+                <div class="sign m-page scene_element scene_element--fadeinup py-1">
+                    <div class="sign__word text-center my-4">no parking ticket today</div>
                 </div>
             </div>
+            
+            
+            
+            <div class="container m-page scene_element scene_element--fadeinup my-2 searchbar">
+                <form action="" method="get" id="search_form">
+                <div id="form_glow" class="input-group mb-4 glow">
 
-        <div class="hidden">
-            <form action="./result" method="get" id="hidden_form">
-                <input id="placename" name="placename" type="text" class="hidden" value="" />
-                <input id="lat" name="lat" type="text" class="hidden" value="" />
-                <input id="long" name="long" class="hidden" type="text" value="" />
-            </form>
-        </div>
-        
-        <div class="container explain font-effect-neon">Search your risk of getting a parking ticket, anywhere in Los Angeles with TicketDodger, a Big Data driven website created from 1 Million points of Open Source data on the parking ticket distributions across Los Angeles. The search results also include a heatmap of the parking ticket densities and distributions. So get Dodging!</div>
-        
-        
-        <div class="la">
-            <div class="icon">
-                <img  class="iconimg" src="pin.png" alt="location icon">
+                    <input type="text" class="form-control bg-dark text-white" id="search_input" placeholder="Where do you want to park?" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <input class="btn btn-outline-secondary btn-dark text-white sign__word" value="Dodge!" type="submit">
+                    </div>
+                </div>
+                </form>
+                <div id="error_message" class="d-none p-2 glow-red">Error finding address / address out of range. Please enter a valid Los Angeles Address</div>
             </div>
-            <div class="los">
-                <span id="l">L</span>
-                <span id="o">O</span>
-                <span id="s">S </span>
-            </div>
-            <div class="angeles">
-                <span id="a">A</span>
-                <span id="n">N</span>
-                <span id="g">G</span>
-                <span id="e">E</span>
-                <span id="l2">L</span>
-                <span id="e2">E</span>
-                <span id="s2">S</span>
-            </div>   
-        </div>
 
+            <!-- remove class:font-effect-neon, add class: sign__word -->
+            <div class="container explain p-0">
+                <p class="intro text-justify">Search your risk of getting a parking ticket, anywhere in Los Angeles with TicketDodger, a Big Data driven website created from 1 Million points of Open Source data on the parking ticket distributions across Los Angeles. The search results also include a heatmap of the parking ticket densities and distributions.<span class="getDodging"> So get Dodging!</span></p>
+            </div>
+
+            <div class="hidden">
+                <form action="./result" method="get" id="hidden_form">
+                    <input id="placename" name="placename" type="text" class="hidden" value="" />
+                    <input id="lat" name="lat" type="text" class="hidden" value="" />
+                    <input id="long" name="long" class="hidden" type="text" value="" />
+                </form>
+            </div>
         </main>
-        <script src="splash.js?version=4"></script>
+        
+        <footer id="footer">
+            <div class="copyright">
+            Copyright © 2020 Christopher Jones, Ella C Qi. All Rights Reserved.</div>
+        </footer>
 
+        <script src="splash.js?version=4"></script>
     </body>
 </html>

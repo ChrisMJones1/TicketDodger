@@ -7,18 +7,12 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}
-
-/*************** h1 title "TICKETDODGER" ***************/
-.neon {
   overflow: hidden;
-  filter: brightness(200%);
-  top: 10em;
 }
-.explain {
-    font-family: Roboto;
+#main {
+    padding-top: 4em;
 }
-
+/*************** h1 title "TICKETDODGER" ***************/
 .text {
   background-color: black;
   color: white;
@@ -29,7 +23,6 @@ body {
   position: relative;
   user-select: none;
 }
-
 .text::before {
   content: attr(data-text);
   position: absolute;
@@ -37,7 +30,6 @@ body {
   filter: blur(0.02em);
   mix-blend-mode: difference;
 }
-
 .gradient {
   position: absolute;
   background: linear-gradient(45deg, #245A97, #B0B0B0, #FFFFFF, #223B75, #E4002B, #245A97, #B0B0B0, #FFFFFF, #223B75, #E4002B);
@@ -47,7 +39,6 @@ body {
   bottom: 0;
   mix-blend-mode: multiply;
 }
-
 .spotlight {
   position: absolute;
   top: -100%;
@@ -58,14 +49,17 @@ body {
   animation: light 5s linear infinite;
   mix-blend-mode: color-dodge;
 }
-
 @keyframes light {
   to {
     transform: translate(50%, 50%);
   }
 }
 /*************** h1 title "TICKETDODGER" end ***************/
+
 /*************** search bar ***************/
+.searchbar {
+    width: 50% !important;
+}
 .webdesigntuts-workshop {
   background: black;
   height: 0;
@@ -73,7 +67,6 @@ body {
   text-align: center;
   width: 100%;
 }
-
 .webdesigntuts-workshop:before,
 .webdesigntuts-workshop:after {
   content: "";
@@ -84,21 +77,6 @@ body {
   position: absolute;
   width: 800px;
 }
-
-/******** gray line *******/
-/*
-.webdesigntuts-workshop:before {
-	background: #444;
-	background: linear-gradient(left, #151515, #444, #151515);
-	top: 100px;
-}
-
-.webdesigntuts-workshop:after {
-	background: #000;
-	background: linear-gradient(left, #151515, #000, #151515);	
-	top: 111px;
-}
-*/
 .webdesigntuts-workshop input {
   /*	background: #222;	*/
   background: white;
@@ -116,15 +94,12 @@ body {
   text-shadow: 0 -1px 0 #000;
   width: 300px;
 }
-
 .ie .webdesigntuts-workshop input {
   line-height: 40px;
 }
-
 .webdesigntuts-workshop input::-webkit-input-placeholder {
   color: #888;
 }
-
 .webdesigntuts-workshop input:-moz-placeholder {
   color: #888;
 }
@@ -140,7 +115,6 @@ body {
   color: #FFFFFF;
   outline: none;
 }
-
 .glow-red {
   animation: glow-red 800ms ease-out infinite alternate;
   background: #222922;
@@ -151,16 +125,14 @@ body {
   color: #FFFFFF;
   outline: none;
 }
-
 .webdesigntuts-workshop input:focus::-webkit-input-placeholder {
   color: #FFFFFF;
 }
-
 .webdesigntuts-workshop input:focus:-moz-placeholder {
   color: #FFFFFF;
 }
-
 /********* input focus end *********/
+
 .webdesigntuts-workshop button {
   background: #222;
   background: linear-gradient(#333, #222);
@@ -182,7 +154,6 @@ body {
   text-shadow: 0 -1px 0 #000;
   width: 100px;
 }
-
 .webdesigntuts-workshop button:hover,
 .webdesigntuts-workshop button:focus {
   background: #292929;
@@ -190,14 +161,12 @@ body {
   color: #245A97;
   outline: none;
 }
-
 .webdesigntuts-workshop button:active {
   background: #292929;
   background: linear-gradient(#393939, #292929);
   box-shadow: 0 1px 0 #000, inset 1px 0 1px #222;
   top: 1px;
 }
-
 @keyframes glow {
   0% {
     border-color: #245A97;
@@ -219,13 +188,38 @@ body {
   }
 }
 /*************** search bar end ***************/
+
 /*************** slogan ***************/
+.neon {
+  overflow: hidden;
+  filter: brightness(200%);
+}
+.explain {
+    font-family: Roboto;
+    color: #FFFFFF;
+    text-shadow: 0 0 5px rgba(202, 228, 225, 0.92), 
+        0 0 10px rgba(202, 228, 225, 0.34), 
+        0 0 20px rgba(30, 132, 242, 0.52),
+        0 0 10px rgba(30, 132, 242, 0.92), 
+        0 0 10px rgba(30, 132, 242, 0.78), 
+        0 0 20px rgba(30, 132, 242, 0.92);
+}
+.intro {
+    margin: 0 auto;
+    margin-top: 2em;
+    line-height: 1.8em;
+    width: 75%;
+    padding: 0;
+}
+.getDodging {
+    font-size: 1.4rem;
+}
 .sign {
   font-family: "Vibur", cursive;
 }
 
 .sign__word {
-  font-size: 7vw;
+  font-size: 4.5vw;
   color: #FFFFFF;
   animation: neon 0.08s ease-in-out infinite alternate;
 }
@@ -239,7 +233,6 @@ body {
     text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px rgba(30, 132, 242, 0.84), 0 0 38px rgba(30, 132, 242, 0.88), 0 0 60px #1e84f2;
   }
 }
-/*// Link*/
 .link {
   position: absolute;
   bottom: 10px;
@@ -251,37 +244,8 @@ body {
   color: #c6e2ff;
   text-shadow: 0 0 2px rgba(202, 228, 225, 0.92), 0 0 10px rgba(202, 228, 225, 0.34), 0 0 4px rgba(30, 132, 242, 0.52), 0 0 7px rgba(30, 132, 242, 0.92), 0 0 11px rgba(30, 132, 242, 0.78), 0 0 16px rgba(30, 132, 242, 0.92);
 }
-
 /*************** slogan end ***************/
-/*************** LA ***************/
-.la {
-  position: absolute;
-  top: 35em;
-  left: 20%;
-  font-size: 1em;
-  color: #E4002B;
-  text-shadow: 2px 2px 2px #165d87, 4px 8px 5px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-flow: row wrap;
-  font-family: sans-serif;
-}
 
-.iconimg {
-  width: 23px;
-  display: inline-block;
-  margin-right: 0.5em;
-}
-
-.los {
-  display: inline-block;
-  margin-right: 0.5em;
-}
-
-.angeles {
-  flex: auto;
-}
-
-/*************** LA end ***************/
 /*************** time picker ***************/
 .clock {
   height: 100px;
@@ -387,6 +351,22 @@ body {
   left: 20px;
   height: 10px;
 }
+/*************** footer ***************/
+#footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.copyright {
+    text-align: center;
+    padding: 0;
+    margin: 0 auto;
+    font-size: 1.2vw;
+}
+/*************** footer end ***************/
 
 /******************** reference **********************
 
@@ -397,6 +377,7 @@ Glowing Pulse Form Codepen by Jack Rugile: https://codepen.io/jackrugile/pen/ABe
 Neon effect From Codepen by Mark Heggan: https://codepen.io/markheggan/full/LjrVYN
 
 *****************************************************/
+
 .hidden {
   display: none !important;
 }
@@ -998,7 +979,12 @@ pre code {
   margin-right: auto;
   margin-left: auto;
 }
+
+/******************** responsive design ******************/
 @media (min-width: 576px) {
+    body {
+        
+    }
   .container {
     max-width: 540px;
   }
