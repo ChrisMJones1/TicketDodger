@@ -6,8 +6,7 @@ body {
   background-image: url("./wall.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
+  background-repeat: repeat-y;
 }
 #main {
     padding-top: 4em;
@@ -58,7 +57,7 @@ body {
 
 /*************** search bar ***************/
 .searchbar {
-    width: 50% !important;
+    width: 65% !important;
 }
 .webdesigntuts-workshop {
   background: black;
@@ -196,6 +195,7 @@ body {
 }
 .explain {
     font-family: Roboto;
+    font-size: 1em;
     color: #FFFFFF;
     text-shadow: 0 0 5px rgba(202, 228, 225, 0.92), 
         0 0 10px rgba(202, 228, 225, 0.34), 
@@ -206,13 +206,13 @@ body {
 }
 .intro {
     margin: 0 auto;
-    margin-top: 2em;
+    margin-top: 0.5em;
     line-height: 1.8em;
     width: 75%;
     padding: 0;
 }
 .getDodging {
-    font-size: 1.4rem;
+    font-size: 1.3em;
 }
 .sign {
   font-family: "Vibur", cursive;
@@ -357,6 +357,7 @@ body {
     position: absolute;
     bottom: 0;
     text-align: center;
+    margin-top: 1vw;
     margin-bottom: 0;
     padding-bottom: 0;
 }
@@ -364,7 +365,7 @@ body {
     text-align: center;
     padding: 0;
     margin: 0 auto;
-    font-size: 1.2vw;
+    font-size: 0.8em;
 }
 /*************** footer end ***************/
 
