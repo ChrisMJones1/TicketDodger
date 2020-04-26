@@ -75,10 +75,6 @@ a:hover {
 }
 */
 
-
-
-
-
 #myHeader {
   width: 100%;
   position: fixed;
@@ -94,7 +90,7 @@ a:hover {
 #myHeader::after {
   content: "";
   background: url("../wall.jpg");
-  opacity: 1;
+  opacity: 0.95;
   top: 0;
   left: 0;
   bottom: 0;
@@ -206,7 +202,6 @@ h1 {
   letter-spacing: -0.1em;
 }
 
-/************ timeslot *************/
 .neontext {
     color: whitesmoke;
     text-shadow: 0 0 5px rgba(202, 228, 225, 0.92), 
@@ -216,7 +211,7 @@ h1 {
     0 0 10px rgba(30, 132, 242, 0.78), 
     0 0 20px rgba(30, 132, 242, 0.92);
 }
-
+/************ timeslot *************/
 .timeslot {
   position: absolute;
   left: 40%;
