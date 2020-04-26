@@ -26,7 +26,7 @@ $(document).ready(function () {
     $("#risk-btn").on('click', risk_toggle);
 
     let searchParams = new URLSearchParams(window.location.search)
-    $("#address").html(searchParams.get('placename'));
+    //$("#address").html(searchParams.get('placename'));
     var getresults = {
         y: searchParams.get('lat'),
         x: searchParams.get('long')
@@ -138,26 +138,32 @@ $(document).ready(function () {
                     //     heat_map_9742ec1740444fea95c7fa38271f2180.addLatLng(entry);
                     // });
                     heat_map_9742ec1740444fea95c7fa38271f2180.setLatLngs(data.latlongs);
-                    let risklevel = "There were " + data.count + " tickets given out <br> in this area at this time of day";
+                    let risklevel = "There were " + data.count + " tickets given out in " + searchParams.get('placename') + " at this time of day";
                     let risk_suggestion = "You will likely not get a ticket";
                     if(data.count >= 500)
                     {
                         // risklevel = "high";
-                        risk_suggestion = "You will get a ticket, park elsewhere";
+                        risk_suggestion = "You will get a ticket, park elsewhere"; 
+                        //set risk color to red
+                        $("#risk_suggestion").css('color','#f25f5c');
                     }
                     else if(data.count >= 100)
                     {
                         // risklevel = "medium";
                         risk_suggestion = "You will probably get a ticket, consider parking elsewhere";
+                        //set risk color to orange
+                        $("#risk_suggestion").css('color','#ff9241');
                     }
                     else if(data.count >= 10)
                     {
                         // risklevel = "low";
-                        risk_suggestion = "The risk of getting a ticket here is low";
+                        risk_suggestion = "The risk of getting a ticket here is low"; 
+                        //set risk color to yellow
+                        $("#risk_suggestion").css('color','#fff3b0');
                     }
                     $("#level").html(risklevel);
                     $("#risk_suggestion").html(risk_suggestion);
-                    current_cache = current_bounds;
+                    current_cache = current_bounds;        
                 }});
 
             current_cache = map_611ae1ea252342b3a610c004d09e0358.getBounds();

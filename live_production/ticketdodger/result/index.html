@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+<html>
 <head>
     <!--------------- add title & css link -------------->
-    <title>TicketDodger| Result</title>
+    <title>TicketDodger | Result</title>
     <link rel="stylesheet" type="text/css" href="result.css?version=2">
     <link href="https://fonts.googleapis.com/css?family=Raleway|Shadows+Into+Light+Two&display=swap" rel="stylesheet">
     <!--------------- add title & css link end -------------->
+
     
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
         <script>
@@ -13,7 +15,6 @@
         </script>
     
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
-<!--    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>-->
 
     <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -55,16 +56,22 @@
     
     <!------------------------- add header ---------------------->
     <header id="myHeader" class="m-aside scene_element scene_element--fadeinright">
+        
         <!-- logo title -->
         <div class="logo">
-            <h1></h1><a id="logo-title" href="../">TicketDodger</a></h1>
+            <h1>
+                <a id="logo-title" href="../">TicketDodger</a>
+            </h1>
+            <p class="logo-copyright">
+                © 2020-02 Developed by Christopher Jones & Ella Qi 
+            </p>
         </div>
         
         <!----------------- set timeslot ---------------->
         <div class="timeslot">
 <!--            <form action="" method="get">-->
-                <label>Arrive at</label>
-                <select id="time_choice">
+                <label for="time_choice" class="neontext">Arrive at </label>
+                <select id="time_choice" name="time_choice">
                     <option value="current">current time</option>
                     <option value="0">12:00 AM</option>
                     <option value="1">1:00 AM</option>
@@ -91,14 +98,12 @@
                     <option value="22">10:00 PM</option>
                     <option value="23">11:00 PM</option>
                 </select>
-<!--                <input class="submitbtn" type="submit" value="Start Dodge">-->
-<!--            </form>-->
         </div>
         <!----------------- set timeslot end ---------------->
 
         <!----------------- set theme ---------------->
         <div class="theme">
-                <label>Theme:</label>
+                <label class="neontext">Theme </label>
                 <select id="theme">
                     <option value="watercolor">Watercolor</option>
                     <option value="light">Light Theme</option>
@@ -120,39 +125,22 @@
     
     <!------------------------- add result block ---------------------->
     <div id="risk_container" class="resultContainer m-right-panel m-page scene_element scene_element--fadein">
-        <div class="gobacklink">
-            <a href="../">Back to location input</a>
-        </div>
-        <div class="result">
-            <p class="resultText">
-                The risk of getting a parking ticket<br>
-                at 
+        <div class="result" id="draggable">
+            <div class="dragtext">
+                "Drag me around"
+            </div>
+            <p class="resultText neontext">
                 <!-- use js -->
-                <span id="address"></span>
-                <span id="time" class="realtime">18:16:56</span><br>is
                 <span id="level"></span>
-<!--                <span>-->
-<!--                    &lt;!&ndash; use js &ndash;&gt;-->
-<!--                    <img class="icon levelicon" src="../../img/smile.png" alt="smile face">-->
-<!--                </span>-->
             </p>
-            <!----------- icon copyright ------------>
-            <div class="iconcopyright">Icons made by <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            <div class="iconcopyright">Icons made by <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></div>
-            <div class="iconcopyright">Icons made by <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></div>
-            <!-- pack: https://www.flaticon.com/free-icon/smile_742751 -->
-            <!----------- icon copyright end ------------>
             
             <div id="risk_suggestion" class="suggestion">
 <!--                It's safe to park your car there. <br>-->
             </div>
-            Check the real time heat map.
-            <span class="point">
-                <img class="icon fingericon" src="../finger.png">
-            </span>
-            <!----------- icon copyright ------------>
-            <div class="iconcopyright">Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></div>
-            <!----------- icon copyright end ------------>
+            <div class="checkheatmap neontext">
+                Check the real time heat map.
+                <i class="far fa-hand-point-right"><img class="fingerimg" src="hand-point-right-regular.png" alt="point finger"></i>
+            </div>
             
             <div id="btn-box" class="top-right">
                 <button class="btn" type="button" data-toggle="button" id="risk-btn">
@@ -160,22 +148,36 @@
                 </button>
             </div>
             
+            <div class="gobacklink">
+                <a class="neontext" href="../">Back to location input</a>
+            </div>
         </div>
     </div>
+    <script>
+        //make result block draggable
+        $( function() {
+        $( "#draggable" ).draggable();
+      } );
+    </script>
     <!------------------------- add result block end ---------------------->
     
     
     <!--------------------- MAP --------------------->
     <div class="folium-map m-right-panel m-page scene_element scene_element--fadeinright" id="map_611ae1ea252342b3a610c004d09e0358" ></div>
     
+<!--
     <div id="footer" class="m-right-panel m-page scene_element scene_element--fadeinright">
         <p class="copyright">
             All Rights Reserved © 2020-02 Developed by Ella Qi & Christopher Jones  
         </p>
     </div>
+-->
 
 </body>
-
+    <!-- add draggable jQuery UI link -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- add draggable jQuery UI link end -->
 <!----------------- header fixed ---------------->
 <script>
 window.onscroll = function() {myFunction()};
