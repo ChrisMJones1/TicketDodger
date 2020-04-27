@@ -37,7 +37,9 @@ $(document).ready(function () {
             validsearch = true;
         } else {
             validsearch = false;
-            $("#searchform__error").html("Whoops! This page is not a valid search, please return to the main page and try your Dodge again.");
+            $("#searchform__error1").html("Whoops! This page is not a valid search, please return to the main page and try your Dodge again.<br>おっと！このページは有効な検索ではありません。メインページに戻って、ダッジを再試行してください。");
+            $("#searchform__error2").html("Whoops! This page is not a valid search, please return to the main page and try your Dodge again.<br>おっと！このページは有効な検索ではありません。メインページに戻って、ダッジを再試行してください。");
+            $("#searchform__error3").html("Whoops! This page is not a valid search, please return to the main page and try your Dodge again.<br>おっと！このページは有効な検索ではありません。メインページに戻って、ダッジを再試行してください。");
             $("#error_display").show();
             return false;
         }

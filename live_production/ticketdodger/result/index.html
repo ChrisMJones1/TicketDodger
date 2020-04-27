@@ -1,75 +1,68 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <!--------------- add title & css link -------------->
-    <title>TicketDodger | Result</title>
-    <link rel="stylesheet" type="text/css" href="result.css?version=2">
-    <link href="https://fonts.googleapis.com/css?family=Raleway|Shadows+Into+Light+Two&display=swap" rel="stylesheet">
-    <!--------------- add title & css link end -------------->
+<html lang="en">
+    <head>
+        <!----- title & css link ----->
+        <title>TicketDodger | Result</title>
+        <link rel="stylesheet" type="text/css" href="result.css?version=2">
+        <link href="https://fonts.googleapis.com/css?family=Raleway|Shadows+Into+Light+Two&display=swap" rel="stylesheet">
+        <!----- title & css link end ----->
 
-    
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-        <script>
-            L_NO_TOUCH = false;
-            L_DISABLE_3D = false;
-        </script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+        <script src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
+        <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/luxon@1.22.0/build/global/luxon.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+        <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+        <!--<script src="https://cdn.jsdelivr.net/npm/smoothstate@0.7.2/src/jquery.smoothState.min.js"></script>-->
+        <style>
+            html, body {width: 100%;height: 100%;margin: 0;padding: 0;}
+        </style>
+        <style>
+            #map {position:absolute;top:0;bottom:0;right:0;left:0;}
+        </style>
+        <meta name="viewport" content="width=device-width,
+            initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <style>
+            #map_611ae1ea252342b3a610c004d09e0358 {
+                position: relative;
+                width: 100.0%;
+                height: 100.0%;
+                left: 0.0%;
+                top: 0.0%;
+            }
+        </style>
+        <script src="https://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"></script>
+    </head>
+    <body id="main" class="m-scene">
+        <!-- add loading circle, react? -->
+        <!----- header ----->
+        <header id="myHeader" class="m-aside scene_element scene_element--fadeinright">
 
-    <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/luxon@1.22.0/build/global/luxon.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
-    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
-    <!--<script src="https://cdn.jsdelivr.net/npm/smoothstate@0.7.2/src/jquery.smoothState.min.js"></script>-->
+            <!-- logo title -->
+            <div class="logo">
+                <h1>
+                    <a id="logo-title" href="../">TicketDodger</a>
+                </h1>
+                <p class="logo-copyright">
+                    © 2020-02 Developed by Christopher Jones , Ella Qi 
+                </p>
+            </div>
 
-    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
-    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
-    
-            <meta name="viewport" content="width=device-width,
-                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-            <style>
-                #map_611ae1ea252342b3a610c004d09e0358 {
-                    position: relative;
-                    width: 100.0%;
-                    height: 100.0%;
-                    left: 0.0%;
-                    top: 0.0%;
-                    /****************** set layer *****************/
-/*                    z-index: -1;*/
-                }
-            </style>
-        
-    <script src="https://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"></script>
-</head>
-<body id="main" class="m-scene">
-    
-    <!-- add loading circle, react? -->
-    
-    <!------------------------- add header ---------------------->
-    <header id="myHeader" class="m-aside scene_element scene_element--fadeinright">
-        
-        <!-- logo title -->
-        <div class="logo">
-            <h1>
-                <a id="logo-title" href="../">TicketDodger</a>
-            </h1>
-            <p class="logo-copyright">
-                © 2020-02 Developed by Christopher Jones , Ella Qi 
-            </p>
-        </div>
-        
-        <!----------------- set timeslot ---------------->
-        <div class="timeslot">
-<!--            <form action="" method="get">-->
+            <!----- set timeslot ----->
+            <div class="timeslot">
                 <label for="time_choice" class="neontext">Arrive at </label>
                 <select id="time_choice" name="time_choice">
                     <option value="current">current time</option>
@@ -98,102 +91,113 @@
                     <option value="22">10:00 PM</option>
                     <option value="23">11:00 PM</option>
                 </select>
-        </div>
-        <!----------------- set timeslot end ---------------->
+            </div>
+            <!----- set timeslot end ----->
 
-        <!----------------- set theme ---------------->
-        <div class="theme">
-                <label class="neontext">Theme </label>
-                <select id="theme">
-                    <option value="watercolor">Watercolor</option>
-                    <option value="light">Light Theme</option>
-                    <option value="dark">Dark Theme</option>
-                </select>
-        </div>
-        <!----------------- set theme end ---------------->
-        
-        
-        
-    </header> 
-    <!------------------------- add header end ---------------------->
-    <div id="error_display">
-        <div class="gobacklink">
-            <a href="../">Back to location input</a>
-        </div>
-        <div id="searchform__error"></div>
-    </div>
-    
-    <!------------------------- add result block ---------------------->
-    <div id="risk_container" class="resultContainer m-right-panel m-page scene_element scene_element--fadein">
-        <div class="result" id="draggable">
-            <div class="dragtext">
-                "Drag me around"
+            <!----- set theme ----->
+            <div class="theme">
+                    <label class="neontext">Theme </label>
+                    <select id="theme">
+                        <option value="watercolor">Watercolor</option>
+                        <option value="light">Light Theme</option>
+                        <option value="dark">Dark Theme</option>
+                    </select>
             </div>
-            <p class="resultText neontext">
-                <!-- use js -->
-                <span id="level"></span>
-            </p>
-            
-            <div id="risk_suggestion" class="suggestion">
-<!--                It's safe to park your car there. <br>-->
-            </div>
-            <div class="checkheatmap neontext">
-                Check the real time heat map.
-                <i class="far fa-hand-point-right"><img class="fingerimg" src="hand-point-right-regular.png" alt="point finger"></i>
+            <!----- set theme end ----->    
+        </header> 
+        <!----- header end ----->
+
+        <!----- error page ----->
+        <div id="error_display">
+            <!-- logo title -->
+            <div class="errorlogo">
+                <h1>
+                    <a id="logo-title" href="../">TicketDodger</a>
+                </h1>
+                <p class="logo-copyright">
+                    © 2020-02 Developed by Christopher Jones , Ella Qi 
+                </p>
             </div>
             
-            <div id="btn-box" class="top-right">
-                <button class="btn" type="button" data-toggle="button" id="risk-btn">
-                    <img src="./arrow-left-right.svg" alt="display toggle button" width="32" height="32" title="Show/Hide risk display" />
-                </button>
-            </div>
-            
-            <div class="gobacklink">
+            <div class="gobacklink errorgobacklink">
                 <a class="neontext" href="../">Back to location input</a>
             </div>
+            <div id="errorcontainer">
+                <div id="searchform__error1" class="searcherror1 neontext"></div>
+                <div id="searchform__error2" class="searcherror2"></div>
+                <div id="searchform__error3" class="searcherror3"></div>
+            </div>
+            <div class="errorcopyright neontext">
+                Copyright © 2020 Christopher Jones, Ella Qi. All Rights Reserved.
+            </div>
         </div>
-    </div>
-    <script>
-        //make result block draggable
-        $( function() {
-        $( "#draggable" ).draggable();
-      } );
-    </script>
-    <!------------------------- add result block end ---------------------->
-    
-    
-    <!--------------------- MAP --------------------->
-    <div class="folium-map m-right-panel m-page scene_element scene_element--fadeinright" id="map_611ae1ea252342b3a610c004d09e0358" ></div>
-    
-<!--
-    <div id="footer" class="m-right-panel m-page scene_element scene_element--fadeinright">
-        <p class="copyright">
-            All Rights Reserved © 2020-02 Developed by Ella Qi & Christopher Jones  
-        </p>
-    </div>
--->
+        <!----- error page end ----->
 
-</body>
+        <!----- result block ----->
+        <div id="risk_container" class="resultContainer m-right-panel m-page scene_element scene_element--fadein">
+            <div class="result" id="draggable">
+                <div class="dragtext">
+                    "Drag me around"
+                </div>
+                <p class="resultText neontext">
+                    <!-- use js -->
+                    <span id="level"></span>
+                </p>
+                <div id="risk_suggestion" class="suggestion">
+                    <!-- It's safe to park your car there. <br>-->
+                </div>
+                <div class="checkheatmap neontext">
+                    Check the real time heat map.
+                    <i class="far fa-hand-point-right">
+                        <img class="fingerimg" src="hand-point-right-regular.png" alt="point finger">
+                    </i>
+                </div>
+
+                <div id="btn-box" class="top-right">
+                    <button class="btn" type="button" data-toggle="button" id="risk-btn">
+                        <img src="./arrow-left-right.svg" alt="display toggle button" width="32" height="32" title="Show/Hide risk display" />
+                    </button>
+                </div>
+
+                <div class="gobacklink">
+                    <a class="neontext" href="../">Back to location input</a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            //make result block draggable
+            $( function() {
+            $( "#draggable" ).draggable();
+          } );
+        </script>
+        <!----- result block end ----->
+        
+        <!----- MAP ----->
+        <div class="folium-map m-right-panel m-page scene_element scene_element--fadeinright" id="map_611ae1ea252342b3a610c004d09e0358" ></div>  
+    </body>
+    
     <!-- add draggable jQuery UI link -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- add draggable jQuery UI link end -->
-<!----------------- header fixed ---------------->
-<script>
-window.onscroll = function() {myFunction()};
+    
+    <!----- header fixed ----->
+    <script>
+        window.onscroll = function() {myFunction()};
 
-var header = document.getElementById("myHeader");
-var sticky = header.offsetTop;
+        var header = document.getElementById("myHeader");
+        var sticky = header.offsetTop;
 
-function myFunction() {
-  if (window.pageYOffset > sticky) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
-}
-</script>
-<script src="map.js?version=2"></script>
-<!--<script src="smooth.js"></script>-->
-<!----------------- header fixed ---------------->
+        function myFunction() {
+          if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+          } else {
+            header.classList.remove("sticky");
+          }
+        }
+    </script>
+    <script src="map.js?version=2"></script>
+    <script src="smooth.js"></script>
+    <!----- header fixed ----->
 </html>

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -5,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" type="text/css" href="index.css?version=4">
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-
         <script src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
         <link  href="https://unpkg.com/leaflet-geosearch@latest/assets/css/leaflet.css" rel="stylesheet" />
         <script src="https://unpkg.com/leaflet-geosearch@latest/dist/bundle.min.js"></script>
@@ -32,23 +32,17 @@
                     <div class="gradient"></div>
                     <span class="spotlight"></span>
                 </div>
-                <div class="copyright text-white">
-                    Copyright © 2020 Christopher Jones, Ella C Qi. All Rights Reserved.
-                </div>
             </div>
 
             <div class="container">
                 <div class="sign m-page scene_element scene_element--fadeinup py-1">
-                    <div class="sign__word text-center my-5">no parking ticket today</div>
+                    <div class="sign__word text-center my-3">no parking ticket today</div>
                 </div>
             </div>
-            
-            
             
             <div class="container m-page scene_element scene_element--fadeinup my-2 searchbar">
                 <form action="" method="get" id="search_form">
                 <div id="form_glow" class="input-group p-0 glow">
-
                     <input type="text" class="form-control bg-dark text-white" id="search_input" placeholder="Where do you want to park?" aria-label="Recipient's username" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <input class="btn btn-outline-secondary btn-dark text-white sign__word" value="Dodge!" type="submit">
@@ -60,11 +54,12 @@
 
             <!-- remove class:font-effect-neon, add class: sign__word -->
             <div class="container explain">
-                <p class="intro text-justify" m-0>Search your risk of getting a parking ticket, anywhere in Los Angeles with TicketDodger, a Big Data driven website created from 1 Million points of Open Source data on the parking ticket distributions across Los Angeles. The search results also include a heatmap of the parking ticket densities and distributions.<span class="getDodging"> So get Dodging!</span></p>
+                <p class="intro text-justify" m-0>Search your risk of getting a parking ticket, anywhere in Los Angeles with TicketDodger, a Big Data driven website created from 1 Million points of Open Source data on the parking ticket distributions across Los Angeles. The search results also include a heatmap of the parking ticket densities and distributions.</p>
+                <div class="getDodging"> So get Dodging!</div>
             </div>
 
             <div class="hidden">
-                <form action="./result" method="get" id="hidden_form">
+                <form action="./result/index.html" method="get" id="hidden_form">
                     <input id="placename" name="placename" type="text" class="hidden" value="" />
                     <input id="lat" name="lat" type="text" class="hidden" value="" />
                     <input id="long" name="long" class="hidden" type="text" value="" />
@@ -73,7 +68,9 @@
         </main>
         
         <footer id="footer">
-
+            <div class="copyright text-white">
+                    Copyright © 2020 Christopher Jones, Ella Qi. All Rights Reserved.
+            </div>
         </footer>
 
         <script src="splash.js?version=4"></script>
